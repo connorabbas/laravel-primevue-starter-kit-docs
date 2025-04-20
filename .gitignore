@@ -1,0 +1,16 @@
+/coverage
+*.log
+*.tgz
+.env
+.DS_Store
+.idea
+.temp
+.vite_opt_cache
+.vscode
+.vitepress/dist
+.vitepress/cache
+dist
+cache
+temp
+node_modules
+*.timestamp-*.mjs
