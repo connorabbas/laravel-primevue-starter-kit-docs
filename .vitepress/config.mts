@@ -50,6 +50,12 @@ export default defineConfig({
                 ],
             },
             {
+                text: 'PrimeVue Integration',
+                items: [
+                    { text: 'Theming', link: '/primevue/theming' },
+                ],
+            },
+            {
                 text: 'Admin Role Branch',
                 items: [
                     { text: 'Overview', link: '/admin/overview' },
@@ -59,8 +65,8 @@ export default defineConfig({
             {
                 text: 'Reference',
                 items: [
-                    { text: 'Component Reference', link: '/reference/components' },
-                    { text: 'Composable Reference', link: '/reference/composables' },
+                    { text: 'Components', link: '/reference/components' },
+                    { text: 'Composables', link: '/reference/composables' },
                     { text: 'Theme Presets', link: '/reference/theme-presets' },
                     { text: 'Troubleshooting', link: '/reference/troubleshooting' },
                 ],
@@ -69,7 +75,7 @@ export default defineConfig({
                 text: 'API / SPA Starter Kit',
                 items: [
                     { text: 'Overview', link: '/api-spa/overview' },
-                    { text: 'Laravel API - Setup', link: '/api-spa/setup' },
+                    { text: 'Setup', link: '/api-spa/setup' },
                 ],
             },
         ],
