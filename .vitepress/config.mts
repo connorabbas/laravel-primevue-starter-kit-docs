@@ -25,7 +25,6 @@ export default defineConfig({
     markdown: {
         // https://shiki.style/themes#bundled-themes
         theme: 'tokyo-night',
-        //theme: 'catppuccin-mocha',
     },
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
