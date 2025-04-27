@@ -23,7 +23,9 @@ export default defineConfig({
     title: 'Laravel + PrimeVue',
     description: 'Documentation for connorabbas/laravel-primevue-starter-kit project',
     markdown: {
+        // https://shiki.style/themes#bundled-themes
         theme: 'tokyo-night',
+        //theme: 'catppuccin-mocha',
     },
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
@@ -33,13 +35,13 @@ export default defineConfig({
         ],
 
         sidebar: [
-            {
+            /* {
                 text: 'Examples',
                 items: [
                     { text: 'Markdown Examples', link: '/markdown-examples' },
                     { text: 'Runtime API Examples', link: '/api-examples' },
                 ],
-            },
+            }, */
             {
                 text: 'Introduction',
                 items: [
@@ -48,50 +50,10 @@ export default defineConfig({
                 ],
             },
             {
-                text: 'Main Starter Kit',
-                items: [
-                    { text: 'Overview', link: '/main/overview' },
-                    { text: 'Setup', link: '/main/setup' },
-                    { text: 'Authentication', link: '/main/authentication' },
-                    { text: 'Theming', link: '/main/theming' },
-                    {
-                        text: 'Components',
-                        //link: '/main/components',
-                        items: [
-                            { text: 'Overview', link: '/main/overview' },
-                            { text: 'Setup', link: '/main/setup' },
-                            { text: 'Authentication', link: '/main/authentication' },
-                            { text: 'Theming', link: '/main/theming' },
-                            { text: 'Components', link: '/main/components' },
-                            { text: 'Composables', link: '/main/composables' },
-                            { text: 'Examples', link: '/main/examples' },
-                        ],
-                    },
-                    { text: 'Composables', link: '/main/composables' },
-                    { text: 'Examples', link: '/main/examples' },
-                ],
-            },
-            {
                 text: 'Admin Role Branch',
                 items: [
                     { text: 'Overview', link: '/admin/overview' },
                     { text: 'Setup', link: '/admin/setup' },
-                    { text: 'Admin Panel', link: '/admin/admin-panel' },
-                    { text: 'Components', link: '/admin/components' },
-                    { text: 'Composables', link: '/admin/composables' },
-                    { text: 'Examples', link: '/admin/examples' },
-                ],
-            },
-            {
-                text: 'SPA/API Starter Kit',
-                items: [
-                    { text: 'Overview', link: '/spa-api/overview' },
-                    { text: 'Setup', link: '/spa-api/setup' },
-                    { text: 'Authentication', link: '/spa-api/authentication' },
-                    { text: 'Theming', link: '/spa-api/theming' },
-                    { text: 'Components', link: '/spa-api/components' },
-                    { text: 'Composables', link: '/spa-api/composables' },
-                    { text: 'Examples', link: '/spa-api/examples' },
                 ],
             },
             {
@@ -101,6 +63,13 @@ export default defineConfig({
                     { text: 'Composable Reference', link: '/reference/composables' },
                     { text: 'Theme Presets', link: '/reference/theme-presets' },
                     { text: 'Troubleshooting', link: '/reference/troubleshooting' },
+                ],
+            },
+            {
+                text: 'API / SPA Starter Kit',
+                items: [
+                    { text: 'Overview', link: '/api-spa/overview' },
+                    { text: 'Laravel API - Setup', link: '/api-spa/setup' },
                 ],
             },
         ],
