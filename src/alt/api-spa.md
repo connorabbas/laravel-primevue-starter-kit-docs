@@ -1,4 +1,4 @@
-# Setup
+# API / SPA Starter Kit
 
 ## Vue SPA
 

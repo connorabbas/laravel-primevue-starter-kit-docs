@@ -2,11 +2,13 @@
 
 ## About
 
-A basic authentication starter-kit built using [Laravel](https://laravel.com/docs/master), [Intertia.js](https://inertiajs.com/), [PrimeVue](https://primevue.org/) components, and [Tailwind CSS](https://tailwindcss.com/).
+A basic authentication starter-kit for [Laravel](https://laravel.com/docs/master), built with [Intertia.js](https://inertiajs.com/), [PrimeVue](https://primevue.org/) components, and [Tailwind CSS](https://tailwindcss.com/).
 
 This starter kit aims to provide similar functionality as the official [Laravel + Vue Starter Kit](https://github.com/laravel/vue-starter-kit), but utilizing **PrimeVue** components instead of **Shadcn for Vue**.
 
 This starter kit provides a simple implementation of all of Laravel's [authentication features](https://laravel.com/docs/master/authentication), including login, registration, password reset, email verification, and password confirmation.
+
+To view the starter kit in action, you can visit the [demo site](https://laravel-primevue-starter-kit-demo.laravel.cloud/).
 
 ### Features
 

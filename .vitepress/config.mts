@@ -53,29 +53,20 @@ export default defineConfig({
                 text: 'PrimeVue Integration',
                 items: [
                     { text: 'Theming', link: '/primevue/theming' },
+                    {
+                        text: 'Composables',
+                        items: [
+                            { text: 'usePaginatedData', link: '/primevue/composables/usePaginatedData' },
+                            { text: 'useLazyDataTable', link: '/primevue/composables/useLazyDataTable' },
+                        ],
+                    },
                 ],
             },
             {
-                text: 'Admin Role Branch',
+                text: 'Alternative Implementations',
                 items: [
-                    { text: 'Overview', link: '/admin/overview' },
-                    { text: 'Setup', link: '/admin/setup' },
-                ],
-            },
-            {
-                text: 'Reference',
-                items: [
-                    { text: 'Components', link: '/reference/components' },
-                    { text: 'Composables', link: '/reference/composables' },
-                    { text: 'Theme Presets', link: '/reference/theme-presets' },
-                    { text: 'Troubleshooting', link: '/reference/troubleshooting' },
-                ],
-            },
-            {
-                text: 'API / SPA Starter Kit',
-                items: [
-                    { text: 'Overview', link: '/api-spa/overview' },
-                    { text: 'Setup', link: '/api-spa/setup' },
+                    { text: 'Branch - Admin Role', link: '/alt/admin-role-branch' },
+                    { text: 'API / SPA Starter Kit', link: '/alt/api-spa' },
                 ],
             },
         ],
