@@ -62,7 +62,7 @@ export default defineConfig({
                 ],
             },
             {
-                text: 'Alternative Implementations',
+                text: 'Alternatives',
                 items: [
                     { text: 'Branch - Admin Role', link: '/alt/admin-role-branch' },
                     { text: 'API / SPA Starter Kit', link: '/alt/api-spa' },

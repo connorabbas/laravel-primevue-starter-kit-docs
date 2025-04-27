@@ -18,11 +18,10 @@ To view the starter kit in action, you can visit the [demo site](https://laravel
 -   Light/dark/system color mode toggle
 -   Easily customizable theming
 -   Opt-in TypeScript usage
--   [Admin role branch](https://github.com/connorabbas/laravel-primevue-starter-kit/tree/feature/admin-role) using [spatie/laravel-permission](https://spatie.be/docs/laravel-permission/v6/introduction)
 
 ## Create a New Application
 
-To create a new application using this starter kit, there are a few options to choose from.
+To create a new application, choose from one of the available options to get started:
 
 -   Create a new repository using the [public template on GitHub](https://github.com/new?template_name=laravel-primevue-starter-kit&template_owner=connorabbas).
 -   Create a [new fork](https://github.com/connorabbas/laravel-primevue-starter-kit/fork) on GitHub.
@@ -36,6 +35,20 @@ To create a new application using this starter kit, there are a few options to c
     ```
     :::
 -   Download the ZIP from GitHub.
+
+## Alternatives
+
+### Branch - Admin Role
+
+Want even more out of this starter kit? Check out the [Admin Role](https://github.com/connorabbas/laravel-primevue-starter-kit/tree/feature/admin-role) branch, which provides user permissions and roles using [spatie/laravel-permission](https://spatie.be/docs/laravel-permission/v6/introduction).
+
+Read the [setup docs](/alt/admin-role-branch) to learn more and get started.
+
+### PrimeVue SPA & Laravel API Starter Kit
+
+Do you prefer/need a separate Vue SPA front-end rather than using Inertia.js? Consider using the [PrimeVue SPA & Laravel API Starter Kit](https://github.com/connorabbas/laravel-api-primevue-starter-kit) instead.
+
+Read the [setup docs](/alt/api-spa) to learn more and get started.
 
 ## Local development
 

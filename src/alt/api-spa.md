@@ -2,6 +2,21 @@
 
 ## Vue SPA
 
+To create a new application, choose from one of the available options to get started:
+
+-   Create a new repository using the [public template on GitHub](https://github.com/new?template_name=laravel-api-primevue-starter-kit&template_owner=connorabbas).
+-   Create a [new fork](https://github.com/connorabbas/laravel-api-primevue-starter-kit/fork) on GitHub.
+-   Clone the repository
+    ::: code-group
+    ```bash [HTTPS]
+    git clone https://github.com/connorabbas/laravel-api-primevue-starter-kit.git
+    ```
+    ```bash [SSH]
+    git clone git@github.com:connorabbas/laravel-api-primevue-starter-kit.git
+    ```
+    :::
+-   Download the ZIP from GitHub.
+
 ## Laravel API
 
 1. Create a [new Laravel application](https://laravel.com/docs/master/installation)
