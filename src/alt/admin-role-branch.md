@@ -13,7 +13,7 @@ git clone -b feature/admin-role https://github.com/connorabbas/laravel-primevue-
 -   Artisan command to register new Users (and optionally assign their roles)
 -   Example Users index page utilizing `useLazyDataTable()` composable
 
-## Register new Admin User
+## Register User command
 
 Since there is no registration page for admins, use the following artisan command:
 
