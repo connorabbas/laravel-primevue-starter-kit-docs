@@ -6,6 +6,7 @@ const hostDomain = process.env.VITEPRESS_HOST_DOMAIN || 'localhost';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+    base: '/laravel-primevue-starter-kit-docs/',
     srcDir: './src',
     vite: {
         server: {
