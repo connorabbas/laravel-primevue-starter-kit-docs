@@ -5,7 +5,7 @@ layout: home
 hero:
     name: 'Laravel & PrimeVue Starter Kit'
     text: 'Official Docs'
-    tagline: A productive and easily customizable starter-kit
+    tagline: A productive and easily customizable starter-kit for Laravel & Vue.js
     actions:
         - theme: brand
           text: Get Started
