@@ -16,17 +16,17 @@ hero:
 
 features:
     - icon:
-          src: /resources/laravel-logo.svg
+          src: ./resources/laravel-logo.svg
       title: Laravel
       details: The PHP framework for web artisans, the most productive way to ship web apps
       link: https://laravel.com/docs/master
     - icon:
-          src: /resources/primevue-logo.webp
+          src: ./resources/primevue-logo.webp
       title: PrimeVue Components
       details: A comprehensive suite of customizable, feature-rich UI components for Vue.js
       link: https://primevue.org/
     - icon:
-          src: /resources/inertia-logo.svg
+          src: ./resources/inertia-logo.svg
       title: Inertia.js
       details: The modern monolith, easily bridge a Laravel back-end with a Vue.js front-end
       link: https://inertiajs.com/
