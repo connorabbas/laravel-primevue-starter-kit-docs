@@ -43,10 +43,11 @@ export default defineConfig({
                 ],
             }, */
             {
-                text: 'Introduction',
+                text: 'Get Started',
                 items: [
-                    { text: 'Getting Started', link: '/introduction/getting-started' },
-                    { text: 'Development With Docker', link: '/introduction/docker' },
+                    { text: 'Introduction', link: '/get-started/introduction' },
+                    { text: 'Installation Guide', link: '/get-started/installation-guide' },
+                    { text: 'Development With Docker', link: '/get-started/docker' },
                 ],
             },
             {

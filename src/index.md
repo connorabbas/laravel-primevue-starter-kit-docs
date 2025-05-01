@@ -9,7 +9,7 @@ hero:
     actions:
         - theme: brand
           text: Get Started
-          link: /introduction/getting-started
+          link: /get-started/introduction
         - theme: alt
           text: Visit the Demo
           link: https://laravel-primevue-starter-kit-demo.laravel.cloud/

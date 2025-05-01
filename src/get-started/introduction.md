@@ -1,4 +1,4 @@
-# Getting Started
+# Introduction
 
 ## About
 
@@ -19,23 +19,6 @@ To view the starter kit in action, you can visit the [demo site](https://laravel
 -   Easily customizable theming
 -   Opt-in TypeScript usage
 
-## Create a New Application
-
-To create a new application, choose from one of the available options to get started:
-
--   Create a new repository using the [public template on GitHub](https://github.com/new?template_name=laravel-primevue-starter-kit&template_owner=connorabbas).
--   Create a [new fork](https://github.com/connorabbas/laravel-primevue-starter-kit/fork) on GitHub.
--   Clone the repository
-    ::: code-group
-    ```bash [HTTPS]
-    git clone https://github.com/connorabbas/laravel-primevue-starter-kit.git
-    ```
-    ```bash [SSH]
-    git clone git@github.com:connorabbas/laravel-primevue-starter-kit.git
-    ```
-    :::
--   Download the ZIP from GitHub.
-
 ## Alternatives
 
 ### Branch - Admin Role
@@ -49,13 +32,3 @@ Read the [setup docs](/alt/admin-role-branch) to learn more and get started.
 Do you prefer/need a separate Vue SPA front-end rather than using Inertia.js? Consider using the [PrimeVue SPA + Laravel API Starter Kit](https://github.com/connorabbas/laravel-api-primevue-starter-kit) instead.
 
 Read the [setup docs](/alt/api-spa) to learn more and get started.
-
-## Local development
-
-### Basic
-
-The easiest way to get started developing locally is to use either [Laravel Herd](https://herd.laravel.com/windows), or [Laragon](https://laragon.org/).
-
-### Docker
-
-If you want more flexibility and already have Docker knowledge, this starter kit provides a streamlined [Docker development setup](/introduction/docker) to get you up and running in no time.
