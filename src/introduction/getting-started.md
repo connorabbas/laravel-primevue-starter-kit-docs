@@ -44,9 +44,9 @@ Want even more out of this starter kit? Check out the [Admin Role](https://githu
 
 Read the [setup docs](/alt/admin-role-branch) to learn more and get started.
 
-### PrimeVue SPA & Laravel API Starter Kit
+### PrimeVue SPA + Laravel API Starter Kit
 
-Do you prefer/need a separate Vue SPA front-end rather than using Inertia.js? Consider using the [PrimeVue SPA & Laravel API Starter Kit](https://github.com/connorabbas/laravel-api-primevue-starter-kit) instead.
+Do you prefer/need a separate Vue SPA front-end rather than using Inertia.js? Consider using the [PrimeVue SPA + Laravel API Starter Kit](https://github.com/connorabbas/laravel-api-primevue-starter-kit) instead.
 
 Read the [setup docs](/alt/api-spa) to learn more and get started.
 
