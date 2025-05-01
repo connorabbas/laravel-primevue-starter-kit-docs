@@ -29,7 +29,7 @@ The easiest way to get started developing locally is to use either [Laravel Herd
 
 ### Docker
 
-If you want more flexibility and already have Docker knowledge, this starter kit provides a streamlined [Docker development setup](/introduction/docker) to get you up and running in no time.
+If you want more flexibility and already have Docker knowledge, this starter kit provides a streamlined [Docker development setup](/get-started/docker) to get you up and running in no time.
 
 ## Local Setup
 
