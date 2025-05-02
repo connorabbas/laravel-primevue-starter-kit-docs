@@ -1,5 +1,15 @@
 # Branch - Admin Role
 
+## About
+
+This branch provides additional functionality for roles/permissions provided by the [spatie/laravel-permission](https://spatie.be/docs/laravel-permission/v6/introduction) composer package.
+
+### Features
+
+-   `Admin` role seeded by default
+-   Artisan command to register new Users (and optionally assign their roles)
+-   Example Users index page utilizing `useLazyDataTable()` composable
+
 ## Setup
 
 Clone from source repository, specifying the branch.
@@ -16,12 +26,7 @@ git clone -b feature/admin-role git@github.com:connorabbas/laravel-primevue-star
 
 :::
 
-## Features
-
--   Roles/Permissions system via [spatie/laravel-permission](https://spatie.be/docs/laravel-permission/v6/introduction)
--   `Admin` role seeded by default
--   Artisan command to register new Users (and optionally assign their roles)
--   Example Users index page utilizing `useLazyDataTable()` composable
+Follow the standard [setup instructions](/get-started/installation-guide.html#setup).
 
 ## Register User command
 

@@ -1,6 +1,14 @@
 # API / SPA Starter Kit
 
-## Vue SPA
+## About
+
+This starter-kit repository provides a Vue SPA (Single Page Application) that connects to a Laravel API backend, authenticated with [Laravel Sanctum](https://laravel.com/docs/master/sanctum). The project provides the same authentication and profile pages/features as the Inertia starter-kit.
+
+::: warning
+Development time/resources are primary allocated to the main Inertia starter kit, this version will not receive any additional features beyond the standard User authentication and profile pages.
+:::
+
+## Vue SPA Setup
 
 Clone from source repository:
 
@@ -22,7 +30,7 @@ Alternatively:
 -   Create a [new fork](https://github.com/connorabbas/laravel-api-primevue-starter-kit/fork) on GitHub.
 -   Download the ZIP from GitHub.
 
-## Laravel API
+## Laravel API Setup
 
 1. Create a [new Laravel application](https://laravel.com/docs/master/installation)
 2. Install [Laravel Breeze](https://laravel.com/docs/11.x/starter-kits#laravel-breeze-installation) using the [API Stack](https://laravel.com/docs/11.x/starter-kits#breeze-and-next) option
