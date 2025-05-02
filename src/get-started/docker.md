@@ -9,7 +9,7 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
 1. In a new directory (outside of your Laravel project) create a `docker-compose.yml` file to create a reverse proxy container using [Traefik](https://doc.traefik.io/traefik/getting-started/quick-start/). You can clone/reference this [example implementation](https://github.com/connorabbas/traefik-docker-compose/blob/master/docker-compose.yml).
 
 2. Step into the directory containing the new compose file, and spin up the Traefik container:
-    ```
+    ```bash
     docker compose up -d
     ```
 3. Update Laravel app `.env`

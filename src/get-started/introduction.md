@@ -6,7 +6,7 @@ A basic authentication starter-kit for [Laravel](https://laravel.com/docs/master
 
 This starter kit aims to provide similar functionality as the official [Laravel + Vue Starter Kit](https://github.com/laravel/vue-starter-kit), but utilizing **PrimeVue** components instead of **Shadcn for Vue**.
 
-This starter kit provides a simple implementation of all of Laravel's [authentication features](https://laravel.com/docs/master/authentication), including login, registration, password reset, email verification, and password confirmation.
+This starter kit provides a simple implementation of all of Laravel's [authentication features](https://laravel.com/docs/master/authentication), including: login, registration, password reset, email verification, and password confirmation. There is also a User profile page, where authenticated Users can update their information (name, email, password), or delete their account if desired.
 
 To view the starter kit in action, you can visit the [demo site](https://laravel-primevue-starter-kit-demo.laravel.cloud/).
 
@@ -23,7 +23,7 @@ To view the starter kit in action, you can visit the [demo site](https://laravel
 
 ### Branch - Admin Role
 
-Want even more out of this starter kit? Check out the [Admin Role](https://github.com/connorabbas/laravel-primevue-starter-kit/tree/feature/admin-role) branch, which provides user permissions and roles using [spatie/laravel-permission](https://spatie.be/docs/laravel-permission/v6/introduction).
+Want even more out of this starter kit? Check out the [Admin Role](https://github.com/connorabbas/laravel-primevue-starter-kit/tree/feature/admin-role) branch, which provides an Admin Role and permissions features.
 
 Read the [setup docs](/alt/admin-role-branch) to learn more and get started.
 

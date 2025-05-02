@@ -23,6 +23,7 @@ export default defineConfig({
     },
     title: 'Laravel + PrimeVue',
     description: 'Documentation for connorabbas/laravel-primevue-starter-kit project',
+    appearance: 'force-dark',
     markdown: {
         // https://shiki.style/themes#bundled-themes
         theme: 'tokyo-night',
@@ -30,8 +31,9 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            //{ text: 'Home', link: '/' },
-            //{ text: 'Examples', link: '/markdown-examples' },
+            { text: 'Demo Application', link: 'https://laravel-primevue-starter-kit-demo.laravel.cloud/' },
+            { text: 'Laravel Docs', link: 'https://laravel.com/docs/master' },
+            { text: 'PrimeVue Docs', link: 'https://primevue.org/' },
         ],
 
         sidebar: [
@@ -72,6 +74,9 @@ export default defineConfig({
             },
         ],
 
-        socialLinks: [{ icon: 'github', link: 'https://github.com/connorabbas/laravel-primevue-starter-kit' }],
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/connorabbas/laravel-primevue-starter-kit' },
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/connorabbas/' },
+        ],
     },
 });

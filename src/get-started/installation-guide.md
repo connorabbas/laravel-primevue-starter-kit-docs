@@ -1,6 +1,6 @@
 # Installation Guide
 
-## Download Source Code
+## Source Code
 
 Clone from source repository:
 ::: code-group
@@ -21,7 +21,7 @@ Alternatively:
 -   Create a [new fork](https://github.com/connorabbas/laravel-primevue-starter-kit/fork) on GitHub.
 -   Download the ZIP from GitHub.
 
-## Local Development Environment
+## Development Environment
 
 ### Basic
 
@@ -31,7 +31,7 @@ The easiest way to get started developing locally is to use either [Laravel Herd
 
 If you want more flexibility and already have Docker knowledge, this starter kit provides a streamlined [Docker development setup](/get-started/docker) to get you up and running in no time.
 
-## Local Setup
+## Setup
 
 1. **Navigate to the project directory**:
 
@@ -59,19 +59,25 @@ If you want more flexibility and already have Docker knowledge, this starter kit
     composer install
     ```
 
-4. **Install npm dependencies**:
-
-    ```bash
-    npm install
-    ```
-
-5. **Generate an application key**:
+4. **Generate an application key**:
 
     ```bash
     php artisan key:generate
     ```
 
-6. **Start the local Vite development server**:
+5. **Migrate database**
+
+    ```bash
+    php artisan migrate
+    ```
+
+6. **Install npm dependencies**:
+
+    ```bash
+    npm install
+    ```
+
+7. **Start the local Vite development server**:
     ```bash
     npm run dev
     ```

@@ -3,8 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.local
-    ports:
-      - "${VITEPRESS_PORT}:${VITEPRESS_PORT}"
     container_name: laravel-primevue-docs
     entrypoint: /bin/sh
     working_dir: /workspace
@@ -13,8 +11,8 @@ services:
     tty: true
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.vue-spa.rule=Host(`laravel-primevue-docs.localhost`)"
-      - "traefik.http.services.vue-spa.loadbalancer.server.port=${VITEPRESS_PORT}"
+      - "traefik.http.routers.laravel-primevue-docs.rule=Host(`laravel-primevue-docs.localhost`)"
+      - "traefik.http.services.laravel-primevue-docs.loadbalancer.server.port=${VITEPRESS_PORT}"
     networks:
       - proxy
 
