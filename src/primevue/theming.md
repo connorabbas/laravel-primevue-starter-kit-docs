@@ -32,7 +32,7 @@ The appearance settings page (`/settings/appearance` route) provides a theme sel
 
 ![theme-selector](/images/theme-selector-ss.png)
 
-The theme selector is more of a demo of the available preset theme options, rather than a useful application feature. More often than not, you'll want to use just one preset as the default theme for your site. To remove the theme selector and use a default preset for the entire application, reference the following:
+The theme selector is more of a demo for the available preset theme options, rather than a useful application feature. More often than not, you'll want to use just one preset as the default theme for your site. To remove the theme selector and use a default preset for the entire application, reference the following:
 
 ::: code-group
 
