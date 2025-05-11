@@ -35,4 +35,5 @@ Make sure to always include the [`lazy`](https://primevue.org/datatable/#api.dat
 -   `reset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Resets filters, sorting & pagination to initial values, then fetches.
 
 ## Reference
+
 [Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)

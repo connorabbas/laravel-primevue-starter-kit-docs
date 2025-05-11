@@ -26,3 +26,7 @@
 -   `reset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Resets filters, sorting & pagination to initial values, then fetches.
 -   `hardReset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Performs a fresh Inertia visit, clearing URL params.
 -   `parseUrlParams(params: PaginatedFilteredSortedQueryParams): void` - Manually set state from URL params.
+
+## Reference
+
+[Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)
