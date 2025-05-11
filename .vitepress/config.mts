@@ -56,13 +56,13 @@ export default defineConfig({
                 text: 'PrimeVue Integration',
                 items: [
                     { text: 'Theming', link: '/primevue/theming' },
-                    /* {
+                    {
                         text: 'Composables',
                         items: [
                             { text: 'usePaginatedData', link: '/primevue/composables/usePaginatedData' },
                             { text: 'useLazyDataTable', link: '/primevue/composables/useLazyDataTable' },
                         ],
-                    }, */
+                    },
                 ],
             },
             {
