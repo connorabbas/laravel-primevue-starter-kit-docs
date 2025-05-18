@@ -29,4 +29,6 @@
 
 ## Reference
 
-[Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)
+- [Example](https://laravel-primevue-starter-kit-demo.laravel.cloud/examples/paginator/contacts)
+- [Example - Source Code](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/paginator/contacts/Index.vue)
+- [Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)
