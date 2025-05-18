@@ -27,7 +27,7 @@ Make sure to always include the [`lazy`](https://primevue.org/datatable/#api.dat
     -   `debounceInputFilter: (fn: () => void) => void`
     -   `scrollToTop: () => void`
     -   `fetchData(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>`
-    -   `paginate(event: PageState | DataTablePageEvent): void`
+    -   `paginate(event: PageState | DataTablePageEvent): Promise<Page<PageProps>>`
     -   `hardReset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>`
 
 -   `filter(event: DataTableFilterEvent): void` - Applies filters from the DataTable event & fetches.
