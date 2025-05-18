@@ -21,8 +21,8 @@
 -   `debounceInputFilter: (fn: () => void) => void` - Debounced wrapper to throttle filter input.
 -   `scrollToTop: () => void` - Smoothly scrolls the window to the top.
 -   `fetchData(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Performs an Inertia GET visit with current filters, sorting, and pagination.
--   `paginate(event: PageState | DataTablePageEvent): void` - Updates pagination state & fetches.
--   `filter(): void` - Resets to page 1 & fetches with current filters.
+-   `paginate(event: PageState | DataTablePageEvent): Promise<Page<PageProps>>` - Updates pagination state & fetches.
+-   `filter(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Resets to page 1 & fetches with current filters and sorting.
 -   `reset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Resets filters, sorting & pagination to initial values, then fetches.
 -   `hardReset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Performs a fresh Inertia visit, clearing URL params.
 -   `parseUrlParams(params: PaginatedFilteredSortedQueryParams): void` - Manually set state from URL params.
