@@ -4,7 +4,7 @@ Similar to the official Laravel version, this starter kit includes two different
 
 ## Sidebar Layout
 
-The header layout is used by default, to use the sidebar update `resources/js/layouts/AppLayout.vue`:
+The header layout is used by default, to use the sidebar layout update `resources/js/layouts/AppLayout.vue`:
 
 ```vue
 <script setup>
