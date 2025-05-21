@@ -49,7 +49,7 @@ const { getCurrentPreset } = useThemePreset(); // [!code --]
 const themePreset = getCurrentPreset(); // [!code --]
 ```
 
-```vue [pages/settings/Appearance.vue]
+```vue [resources/js/pages/settings/Appearance.vue]
 <script setup>
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/UserSettingsLayout.vue';

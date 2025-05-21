@@ -53,14 +53,15 @@ export default defineConfig({
                 ],
             },
             {
-                text: 'PrimeVue Integration',
+                text: 'Features',
                 items: [
-                    { text: 'Theming', link: '/primevue/theming' },
+                    { text: 'Theming', link: '/features/theming' },
+                    { text: 'Layouts', link: '/features/layouts' },
                     {
                         text: 'Composables',
                         items: [
-                            { text: 'usePaginatedData', link: '/primevue/composables/usePaginatedData' },
-                            { text: 'useLazyDataTable', link: '/primevue/composables/useLazyDataTable' },
+                            { text: 'usePaginatedData', link: '/features/composables/usePaginatedData' },
+                            { text: 'useLazyDataTable', link: '/features/composables/useLazyDataTable' },
                         ],
                     },
                 ],
