@@ -4,7 +4,7 @@ This starter kit provides a collection of custom theme presets to choose from, b
 
 ## Provided Theme Presets
 
-The theme presets are located in the `/resources/js/theme` directory. Each preset offers a distinct visual style:
+The theme presets are located in the `resources/js/theme` directory. Each preset offers a distinct visual style:
 
 ### Bootstrap
 
