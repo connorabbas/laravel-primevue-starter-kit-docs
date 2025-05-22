@@ -31,7 +31,7 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            { text: 'Demo Application', link: 'https://laravel-primevue-starter-kit-demo.laravel.cloud/' },
+            { text: 'Demo Application', link: 'https://laravel-primevue-starter-kit-demo.laravel.cloud' },
             { text: 'Laravel Docs', link: 'https://laravel.com/docs/master' },
             { text: 'PrimeVue Docs', link: 'https://primevue.org/' },
         ],

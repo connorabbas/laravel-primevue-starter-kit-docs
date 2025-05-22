@@ -36,6 +36,6 @@ Make sure to always include the [`lazy`](https://primevue.org/datatable/#api.dat
 
 ## Reference
 
-- [Example](https://laravel-primevue-starter-kit-demo.laravel.cloud/examples/data-table/contacts)
+- [Example](https://laravel-primevue-starter-kit-demo.laravel.cloudexamples/data-table/contacts)
 - [Example - Source Code](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/data-table/contacts/Index.vue)
 - [Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)

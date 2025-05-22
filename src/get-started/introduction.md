@@ -8,7 +8,7 @@ This starter kit aims to provide similar functionality as the official [Laravel 
 
 This starter kit provides a simple implementation of all of Laravel's [authentication features](https://laravel.com/docs/master/authentication), including: login, registration, password reset, email verification, and password confirmation. There is also a User profile page, where authenticated Users can update their information (name, email, password), or delete their account if desired.
 
-To view the starter kit in action, you can visit the [demo site](https://laravel-primevue-starter-kit-demo.laravel.cloud/).
+To view the starter kit in action, you can visit the [demo site](https://laravel-primevue-starter-kit-demo.laravel.cloud).
 
 ### Features
 

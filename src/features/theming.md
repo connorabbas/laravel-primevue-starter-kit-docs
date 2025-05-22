@@ -26,72 +26,15 @@ A minimal & clean monochromatic style that serves as the default theme.
 
 A boxy design with a warmer color pallette.
 
-## Theme Selector
+## Change the Theme Preset
 
-The appearance settings page (`/settings/appearance` route) provides a theme selector to showcase the available preset options.
+Changing the site theme can be accomplished by simply updating the preset module used within `resources/js/app.js`:
 
-![theme-selector](/images/theme-selector-ss.png)
-
-The theme selector is more of a demo for the available preset theme options, rather than a useful application feature. More often than not, you'll want to use a static preset definition for your site theme. To remove the theme selector and use a static preset for the entire application, reference the following changes:
-
-::: code-group
-
-```js [resources/js/app.js]
+```js
 import { useColorMode } from '@vueuse/core';
-import themePreset from '@/theme/noir-preset'; // your desired preset // [!code ++]
-import { useThemePreset } from '@/composables/useThemePreset'; // [!code --]
-
-// Site light/dark mode
-const colorMode = useColorMode({ emitAuto: true });
-
-// Site theme preset // [!code --]
-const { getCurrentPreset } = useThemePreset(); // [!code --]
-const themePreset = getCurrentPreset(); // [!code --]
+import themePreset from '@/theme/noir-preset'; // [!code --]
+import themePreset from '@/theme/bootstrap-preset'; // your desired preset // [!code ++]
 ```
-
-```vue [resources/js/pages/settings/Appearance.vue]
-<script setup>
-import AppLayout from '@/layouts/AppLayout.vue';
-import SettingsLayout from '@/layouts/UserSettingsLayout.vue';
-import SelectColorModeButton from '@/components/SelectColorModeButton.vue';
-import ThemePresetSelector from '@/components/ThemePresetSelector.vue'; // [!code --]
-</script>
-
-<template>
-    <AppLayout>
-        <InertiaHead title="Appearance Settings" />
-
-        <SettingsLayout>
-            <Card
-                pt:body:class="max-w-2xl space-y-3"
-                pt:caption:class="space-y-1"
-            >
-                <template #title>
-                    Appearance settings
-                </template>
-                <template #subtitle>
-                    Update your account's appearance settings
-                </template>
-                <template #content>
-                    <div class="space-y-6"> // [!code --]
-                        <div class="flex flex-col gap-2"> // [!code --]
-                            <label for="color-mode-selector">Color Mode</label> // [!code --]
-                            <SelectColorModeButton id="color-mode-selector" /> // [!code --]
-                        </div> // [!code --]
-                        <div class="flex flex-col gap-2"> // [!code --]
-                            <label for="theme-preset-selector">Theme</label> // [!code --]
-                            <ThemePresetSelector id="theme-preset-selector" /> // [!code --]
-                        </div> // [!code --]
-                    </div> // [!code --]
-                    <SelectColorModeButton /> // [!code ++]
-                </template>
-            </Card>
-        </SettingsLayout>
-    </AppLayout>
-</template>
-```
-
-:::
 
 ## Customizing Your Own Theme
 
@@ -102,6 +45,12 @@ Creating your own theme preset is simple. You can:
 -   Change the extended [preset theme](https://primevue.org/theming/styled/#presets).
 
 For detailed guidance on customization, please refer to the [PrimeVue Styled Mode Docs](https://primevue.org/theming/styled/).
+
+## Demo - Theme Selector
+
+The [demo application](https://laravel-primevue-starter-kit-demo.laravel.cloud) appearance settings page (`/settings/appearance` route) provides a theme selector to showcase the provided preset options.
+
+![theme-selector](/images/theme-selector-ss.png)
 
 ## PrimeVue v4 w/ Tailwind CSS
 
