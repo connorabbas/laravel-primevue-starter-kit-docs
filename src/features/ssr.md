@@ -20,46 +20,64 @@ With the server running, you should be able to access your app within the browse
 
 If your application is not public facing and does not require server-side rendering (internal administrative application, dashboard, etc.) then you can remove the SSR related configurations to have the site operate as a traditional SPA, without server-rendered markup and client-side hydration.
 
-To start, you can delete the `resources/js/ssr.js` file, then make the following changes:
+Reference the following steps to disable SSR:
 
-::: code-group
+1. Delete `resources/js/ssr.js`
+2. Front-end changes
 
-```json [package.json]
-"scripts": {
-    "build": "vite build && vite build --ssr", // [!code --]
-    "build": "vite build", // [!code ++]
-    "dev": "vite",
-    "lint": "eslint . --fix"
-}
-```
+    ::: code-group
 
-```js [vite.config.js]
-plugins: [
-    laravel({
-        input: 'resources/js/app.js',
-        ssr: 'resources/js/ssr.js', // [!code --]
-        refresh: true,
-    }),
+    ```json [package.json]
+    "scripts": {
+        "build": "vite build && vite build --ssr", // [!code --]
+        "build": "vite build", // [!code ++]
+        "dev": "vite",
+        "lint": "eslint . --fix"
+    }
+    ```
+
+    ```js [resources/js/app.js]
+    import { createSSRApp, h } from 'vue'; // [!code --]
+    import { createApp, h } from 'vue'; // [!code ++]
+
     // ...
-];
-```
 
-```php [app/Http/Middleware/HandleInertiaRequests.php]
-use Tighten\Ziggy\Ziggy; // [!code --]
+    const app = createSSRApp({ render: () => h(App, props) }); // [!code --]
+    const app = createApp({ render: () => h(App, props) }); // [!code ++]
+    ```
 
-// ...
+    ```js [vite.config.js]
+    plugins: [
+        laravel({
+            input: 'resources/js/app.js',
+            ssr: 'resources/js/ssr.js', // [!code --]
+            refresh: true,
+        }),
+        // ...
+    ];
+    ```
 
-return [
-    ...parent::share($request),
-    'colorScheme' => fn () => $request->cookie('colorScheme', 'auto'), // [!code --]
-    'ziggy' => fn () => [ // [!code --]
-        ...(new Ziggy())->toArray(), // [!code --]
-        'location' => $request->url(), // [!code --]
-    ], // [!code --]
-    'auth' => [
-        'user' => $request->user(),
-    ],
-];
-```
+    :::
 
-:::
+3. Back-end changes
+   ::: code-group
+
+    ```php [app/Http/Middleware/HandleInertiaRequests.php]
+    use Tighten\Ziggy\Ziggy; // [!code --]
+
+    // ...
+
+    return [
+        ...parent::share($request),
+        'colorScheme' => fn () => $request->cookie('colorScheme', 'auto'), // [!code --]
+        'ziggy' => fn () => [ // [!code --]
+            ...(new Ziggy())->toArray(), // [!code --]
+            'location' => $request->url(), // [!code --]
+        ], // [!code --]
+        'auth' => [
+            'user' => $request->user(),
+        ],
+    ];
+    ```
+
+    :::
