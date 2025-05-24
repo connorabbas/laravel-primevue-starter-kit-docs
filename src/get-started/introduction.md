@@ -12,12 +12,14 @@ To view the starter kit in action, you can visit the [demo site](https://laravel
 
 ### Features
 
--   Pre-configured [Auto Import](https://primevue.org/autoimport/) PrimeVue components
+-   [Auto Import](https://primevue.org/autoimport/) PrimeVue components
 -   Extended PrimeVue menu/navigation components utilizing Inertia's `Link` component and [Lucide Icons](https://lucide.dev/)
 -   `usePaginatedData()` & `useLazyDataTable()` composables for use with PrimeVue's `Paginator` & `DataTable` components for easy server-driven pagination/filtering/sorting
 -   Light/dark/system color mode toggle
 -   Easily customizable theming
 -   Opt-in TypeScript usage
+-   Pre-configured [server-side rendering](/features/ssr)
+-   PHPStan with level 8 compliance
 
 ## Alternatives
 

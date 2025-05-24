@@ -55,6 +55,7 @@ export default defineConfig({
             {
                 text: 'Features',
                 items: [
+                    { text: 'Server-Side Rendering', link: '/features/ssr' },
                     { text: 'Theming', link: '/features/theming' },
                     { text: 'Layouts', link: '/features/layouts' },
                     {
