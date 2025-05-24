@@ -26,9 +26,9 @@ To start, you can delete the `resources/js/ssr.js` file, then make the following
 
 ```json [package.json]
 "scripts": {
-    "dev": "vite",
     "build": "vite build && vite build --ssr", // [!code --]
     "build": "vite build", // [!code ++]
+    "dev": "vite",
     "lint": "eslint . --fix"
 }
 ```
