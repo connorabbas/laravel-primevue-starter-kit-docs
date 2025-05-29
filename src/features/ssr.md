@@ -74,9 +74,7 @@ Reference the following steps to disable SSR:
             ...(new Ziggy())->toArray(), // [!code --]
             'location' => $request->url(), // [!code --]
         ], // [!code --]
-        'auth' => [
-            'user' => $request->user(),
-        ],
+        // ...
     ];
     ```
 
