@@ -15,20 +15,20 @@ Clone from source repository:
 ::: code-group
 
 ```bash [HTTPS]
-git clone https://github.com/connorabbas/laravel-api-primevue-starter-kit.git
+git clone https://github.com/connorabbas/laravel-api-primevue-starter-kit.git your-project-name
 ```
 
 ```bash [SSH]
-git clone git@github.com:connorabbas/laravel-api-primevue-starter-kit.git
+git clone git@github.com:connorabbas/laravel-api-primevue-starter-kit.git your-project-name
 ```
 
 :::
 
 Alternatively:
 
--   Create a new repository using the [public template on GitHub](https://github.com/new?template_name=laravel-api-primevue-starter-kit&template_owner=connorabbas).
--   Create a [new fork](https://github.com/connorabbas/laravel-api-primevue-starter-kit/fork) on GitHub.
--   Download the ZIP from GitHub.
+-   Create a new repository using the [public template on GitHub](https://github.com/new?template_name=laravel-api-primevue-starter-kit&template_owner=connorabbas) (then clone)
+-   Create a [new fork](https://github.com/connorabbas/laravel-api-primevue-starter-kit/fork) on GitHub (then clone)
+-   Download the ZIP from GitHub
 
 ## Laravel API Setup
 
