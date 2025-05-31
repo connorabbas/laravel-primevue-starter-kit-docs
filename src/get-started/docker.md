@@ -2,17 +2,21 @@
 
 This starter kit is configured to use Docker Compose for local development with just a few extra steps, powered by images & configuration from [Laravel Sail](https://laravel.com/docs/master/sail). With this setup, you do not need PHP, Composer, PostgreSQL or Node.js installed on your machine to get up and running with this project.
 
+It's assumed that you have [Docker Desktop](https://www.docker.com/products/docker-desktop/), [Docker Compose](https://docs.docker.com/compose/install/), and [Git](https://git-scm.com/downloads) installed on your machine.
+
 If you are developing on Windows, it is highly recommended to use [WSL 2](https://docs.docker.com/desktop/features/wsl/).
 
 ## Setup
 
-1. In a new directory (outside of your Laravel project) create a `docker-compose.yml` file to create a reverse proxy container using [Traefik](https://doc.traefik.io/traefik/getting-started/quick-start/). You can clone/reference this [example implementation](https://github.com/connorabbas/traefik-docker-compose/blob/master/docker-compose.yml).
+1. Install the starter kit using the [Manual (Git)](/get-started/installation-guide.html#manual-git) option
 
-2. Step into the directory containing the new compose file, and spin up the Traefik container:
+2. In a new directory (outside of your Laravel project) create a `docker-compose.yml` file to create a reverse proxy container using [Traefik](https://doc.traefik.io/traefik/getting-started/quick-start/). You can clone/reference this [example implementation](https://github.com/connorabbas/traefik-docker-compose/blob/master/docker-compose.yml).
+
+3. Step into the directory containing the new compose file, and spin up the Traefik container:
     ```bash
     docker compose up -d
     ```
-3. Update Laravel app `.env`
+4. Update Laravel app `.env`
 
     ```env
     # Use any desired domain ending with .localhost
@@ -35,7 +39,7 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
     FORWARD_DB_PORT=5432
     ```
 
-4. Build the Laravel app container using one of the following techniques:
+5. Build the Laravel app container using one of the following techniques:
     - Build manually using docker compose CLI
         ```bash
         docker compose -f docker-compose.local.yml up -d

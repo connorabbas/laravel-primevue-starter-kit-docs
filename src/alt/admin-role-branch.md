@@ -17,11 +17,11 @@ Clone from source repository, specifying the branch.
 ::: code-group
 
 ```bash [HTTPS]
-git clone -b feature/admin-role https://github.com/connorabbas/laravel-primevue-starter-kit.git
+git clone -b feature/admin-role https://github.com/connorabbas/laravel-primevue-starter-kit.git your-project-name
 ```
 
 ```bash [SSH]
-git clone -b feature/admin-role git@github.com:connorabbas/laravel-primevue-starter-kit.git
+git clone -b feature/admin-role git@github.com:connorabbas/laravel-primevue-starter-kit.git your-project-name
 ```
 
 :::
