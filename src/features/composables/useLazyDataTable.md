@@ -2,7 +2,7 @@
 
 ## About
 
-`useLazyDataTable` extends the `usePaginatedData` composable to integrate with **PrimeVue's** paginated [DataTable](https://primevue.org/datatable/#pagination) component, using event-driven filtering & sorting callbacks instead of reactive watchers.
+`useLazyDataTable` extends the `usePaginatedData` composable to integrate with **PrimeVue's** paginated [`<DataTable />`](https://primevue.org/datatable/#pagination) component, using event-driven filtering & sorting callbacks instead of reactive watchers.
 
 ::: tip
 Make sure to always include the [`lazy`](https://primevue.org/datatable/#api.datatable.props.lazy) prop in the `<DataTable />` component implementation, to avoid recursive update errors.

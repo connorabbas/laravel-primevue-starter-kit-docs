@@ -2,7 +2,11 @@
 
 ## About
 
-`usePaginatedData` is a composable that manages server-driven pagination, sorting, and filtering with **Inertia.js** and **PrimeVue's** [Paginator](https://primevue.org/paginator/) component. It handles URL sync, state management, and [Inertia's router](https://inertiajs.com/manual-visits) visits under the hood.
+`usePaginatedData` is a composable that manages server-driven pagination, sorting, and filtering with **Inertia.js** and **PrimeVue's** [`<Paginator />`](https://primevue.org/paginator/) component. It handles URL sync, state management, and [Inertia's router](https://inertiajs.com/manual-visits) visits under the hood.
+
+::: info
+This composable requires a `queryParams` shared data prop containing the url query parameters for the request. This prop is added by default to the  `App\Http\Middleware\HandleInertiaRequests` middleware `share()` method.
+:::
 
 ## Parameters
 
