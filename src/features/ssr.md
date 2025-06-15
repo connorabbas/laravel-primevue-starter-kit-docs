@@ -42,8 +42,8 @@ Reference the following steps to disable SSR:
 
     // ...
 
-    const app = createSSRApp({ render: () => h(App, props) }); // [!code --]
-    const app = createApp({ render: () => h(App, props) }); // [!code ++]
+    const app = createSSRApp(Root) // [!code --]
+    const app = createApp(Root) // [!code ++]
     ```
 
     ```js [vite.config.js]
