@@ -13,8 +13,10 @@ To view the starter kit in action, you can visit the [demo site](https://laravel
 ### Features
 
 -   [Auto Import](https://primevue.org/autoimport/) PrimeVue components
--   Extended PrimeVue menu/navigation components utilizing Inertia's `Link` component and [Lucide Icons](https://lucide.dev/)
--   `usePaginatedData()` & `useLazyDataTable()` composables for use with PrimeVue's `Paginator` & `DataTable` components for easy server-driven pagination/filtering/sorting
+-   Extended PrimeVue menu/navigation components utilizing Inertia's [`<Link />`](https://inertiajs.com/links) component and [Lucide Icons](https://lucide.dev/)
+-   [`usePaginatedData()`](/features/composables/usePaginatedData) & [`useLazyDataTable()`](/features/composables/useLazyDataTable) composables for use with PrimeVue's [`<Paginator />`](https://primevue.org/paginator/) & [`<DataTable />`](https://primevue.org/datatable/) components for easy server-driven pagination/filtering/sorting
+-   Session-based flash messages
+-   Error handling utilizing PrimeVue's [`<Toast />`](https://primevue.org/toast/) component (instead of default full-page modal response)
 -   Light/dark/system color mode toggle
 -   Easily customizable theming
 -   Opt-in TypeScript usage

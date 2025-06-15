@@ -58,6 +58,7 @@ export default defineConfig({
                     { text: 'Server-Side Rendering', link: '/features/ssr' },
                     { text: 'Theming', link: '/features/theming' },
                     { text: 'Layouts', link: '/features/layouts' },
+                    { text: 'Messaging', link: '/features/messaging' },
                     {
                         text: 'Composables',
                         items: [
