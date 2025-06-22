@@ -2,7 +2,7 @@
 {
     "name": "Laravel PrimeVue Docs",
     "dockerComposeFile": [
-        "../docker-compose.local.yml"
+        "../docker-compose.yml"
     ],
     "service": "docs",
     "workspaceFolder": "/workspace",
