@@ -10,11 +10,11 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
 
 1. Install the starter kit using the [Manual (Git)](/get-started/installation-guide.html#manual-git) option
 
-2. In a new directory (outside of your Laravel project) create a `docker-compose.yml` file to create a reverse proxy container using [Traefik](https://doc.traefik.io/traefik/getting-started/quick-start/). You can clone/reference this [example implementation](https://github.com/connorabbas/traefik-docker-compose/blob/master/docker-compose.yml).
+2. In a new directory (outside of your Laravel project) create a `traefik/docker-compose.dev.yml` file to create a reverse proxy container using [Traefik](https://doc.traefik.io/traefik/getting-started/quick-start/). You can clone/reference this [example implementation](https://github.com/connorabbas/traefik-docker-compose/blob/master/docker-compose.dev.yml).
 
 3. Step into the directory containing the new compose file, and spin up the Traefik container:
     ```bash
-    docker compose up -d
+    docker compose -f docker-compose.dev.yml up -d
     ```
 4. Update Laravel app `.env`
 
