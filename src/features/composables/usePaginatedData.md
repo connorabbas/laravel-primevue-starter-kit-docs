@@ -33,6 +33,6 @@ This composable requires a `queryParams` shared data prop containing the url que
 
 ## Reference
 
-- [Example - Demo](https://demo.laravel-primevue-starter-kit.comexamples/paginator/contacts)
+- [Example - Demo](https://demo.laravel-primevue-starter-kit.com/examples/paginator/contacts)
 - [Example - Source Code](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/paginator/contacts/Index.vue)
 - [Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)
