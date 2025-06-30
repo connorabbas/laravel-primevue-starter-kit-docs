@@ -52,8 +52,6 @@ Alternatively:
 -   Create a [new fork](https://github.com/connorabbas/laravel-primevue-starter-kit/fork) (then clone)
 -   Download the ZIP
 
-Follow the [Manual Setup](#manual-setup) steps.
-
 ### Setup
 
 1. **Navigate to the project directory**:
