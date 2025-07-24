@@ -8,7 +8,7 @@ This branch provides additional functionality for roles/permissions provided by 
 
 -   `Admin` role seeded by default
 -   Artisan command to register new Users (and optionally assign their roles)
--   Example Users index page utilizing `useLazyDataTable()` composable
+-   Example Users index page utilizing `usePaginatedDataTable()` composable
 
 ## Setup
 
@@ -42,7 +42,7 @@ And assign the Admin role.
 
 A separate Admin dashboard page, and a Users index page are provided by default, protected by the `role:Admin` middleware
 
-The Users index page provides an example using the `useLazyDataTable()` composable and PrimeVue's `<DataTable />` component. To seed the users table with test data (locally) you can run:
+The Users index page provides an example using the `usePaginatedDataTable()` composable and PrimeVue's `<DataTable />` component. To seed the users table with test data (locally) you can run:
 
 ```bash
 php artisan db:seed

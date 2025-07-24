@@ -63,7 +63,7 @@ export default defineConfig({
                         text: 'Composables',
                         items: [
                             { text: 'usePaginatedData', link: '/features/composables/usePaginatedData' },
-                            { text: 'useLazyDataTable', link: '/features/composables/useLazyDataTable' },
+                            { text: 'usePaginatedDataTable', link: '/features/composables/usePaginatedDataTable' },
                         ],
                     },
                 ],
