@@ -4,10 +4,6 @@
 
 This starter-kit repository provides a Vue SPA (Single Page Application) that connects to a Laravel API backend, authenticated with [Laravel Sanctum](https://laravel.com/docs/master/sanctum). The project provides the same authentication and profile pages/features as the Inertia starter-kit.
 
-::: warning
-Development time/resources are primary allocated to the main Inertia starter kit, this version will not receive any additional features beyond the standard User authentication and profile pages.
-:::
-
 ## Vue SPA Setup
 
 Clone from source repository:
@@ -52,7 +48,7 @@ Alternatively:
     ```
 
     ```bash
-    php artisan make:controller PasswordController
+    php artisan make:controller Auth/PasswordController
     ```
 
 5. Copy Controller code
@@ -124,7 +120,7 @@ Alternatively:
 
     ```
 
-    ```php [PasswordController.php]
+    ```php [Auth/PasswordController.php]
     <?php
 
     namespace App\Http\Controllers\Auth;
