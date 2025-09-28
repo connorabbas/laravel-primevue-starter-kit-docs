@@ -2,7 +2,7 @@
 
 ## About
 
-An opinionated authentication starter-kit for [Laravel](https://laravel.com/docs/master), built with [Intertia.js](https://inertiajs.com/), [Vue.js](https://vuejs.org/) (with TypeScript), [PrimeVue](https://primevue.org/) components, and [Tailwind CSS](https://tailwindcss.com/).
+An opinionated authentication starter-kit for [Laravel](https://laravel.com/docs/master), built with [Intertia.js](https://inertiajs.com/), [Vue.js](https://vuejs.org/), [TypeScript](https://www.typescriptlang.org/), [PrimeVue](https://primevue.org/) components, and [Tailwind CSS](https://tailwindcss.com/).
 
 This starter kit aims to provide similar functionality as the official [Laravel + Vue Starter Kit](https://github.com/laravel/vue-starter-kit), but utilizing **PrimeVue** components instead of **Shadcn for Vue**.
 
