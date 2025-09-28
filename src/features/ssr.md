@@ -44,7 +44,7 @@ Reference the following steps to disable SSR:
             refresh: true,
         }),
         // ...
-    ];
+    ]
     ```
 
     :::

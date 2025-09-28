@@ -31,9 +31,9 @@ A boxy design with a warmer color pallette.
 Changing the site theme can be accomplished by simply updating the preset module used within `resources/js/app.ts`:
 
 ```js
-import { useSiteColorMode } from '@/composables/useSiteColorMode';
-import themePreset from '@/theme/noir-preset'; // [!code --]
-import themePreset from '@/theme/bootstrap-preset'; // your desired preset // [!code ++]
+import { useSiteColorMode } from '@/composables/useSiteColorMode'
+import themePreset from '@/theme/noir-preset' // [!code --]
+import themePreset from '@/theme/bootstrap-preset' // your desired preset // [!code ++]
 ```
 
 ## Customizing Your Own Theme
