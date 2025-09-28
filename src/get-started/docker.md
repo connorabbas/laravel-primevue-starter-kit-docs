@@ -35,7 +35,7 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
 
     # Update port values as needed when running multiple projects/services
     #APP_PORT=80 not required when using Traefik reverse proxy
-    VITE_PORT=5173
+    VITE_APP_PORT=5173
     FORWARD_DB_PORT=5432
     ```
 

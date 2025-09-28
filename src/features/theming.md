@@ -28,7 +28,7 @@ A boxy design with a warmer color pallette.
 
 ## Change the Theme Preset
 
-Changing the site theme can be accomplished by simply updating the preset module used within `resources/js/app.js`:
+Changing the site theme can be accomplished by simply updating the preset module used within `resources/js/app.ts`:
 
 ```js
 import { useSiteColorMode } from '@/composables/useSiteColorMode';
