@@ -37,13 +37,13 @@ try {
 
 ## Toast Messages
 
-A PrimeVue `<Toast />` component and the required [toast service plugin](https://primevue.org/toast/#toast-service) are already registered globally at the app level (`app.js/ssr.js`). To start using toast messages, simply import and utilize the `useToast()` composable as documented.
+A PrimeVue `<Toast />` component and the required [toast service plugin](https://primevue.org/toast/#toast-service) are already registered globally at the app level (`app.ts/ssr.ts`). To start using toast messages, simply import and utilize the `useToast()` composable as documented.
 
 ### Error Handling with Toasts
 
 Inertia provides [error handling](https://inertiajs.com/error-handling) for XHR requests utilizing a full-page response modal and Laravel's built-in error pages. However, for SPA-style application flows with asynchronous requests, a full-page blocking modal isn't the most eloquent experience. This starter kit provides an alternative approach, utilizing PrimeVue's `<Toast />` component to display errors / warnings instead.
 
-This functionality is handled by the `respond()` exception method within the `bootstrap/app.php` file, along with an [event listener](https://inertiajs.com/events#invalid) within the `resources/js/app.js` file to handle the JSON response and trigger the toast/s.
+This functionality is handled by the `respond()` exception method within the `bootstrap/app.php` file, along with an [event listener](https://inertiajs.com/events#invalid) within the `resources/js/app.ts` file to handle the JSON response and trigger the toast/s.
 
 The toast component [severity](https://primevue.org/toast/#severity) is determined by the error status code: `400` level errors will use the "warn" severity, while `500` level errors will use the "error" severity.
 

@@ -2,10 +2,10 @@
 
 ## Setup
 
-Server-side rendering is configured and ready for use out of the box. Simply build the client & server side bundles:
+Server-side rendering is configured and ready for use out of the box. Simply build the client & server side bundles with the following script:
 
 ```bash
-npm run build
+npm run build:ssr
 ```
 
 Then start the Node-based Inertia SSR server:
@@ -22,42 +22,32 @@ If your application is not public facing and does not require server-side render
 
 Reference the following steps to disable SSR:
 
-1. Delete `resources/js/ssr.js`
+1. Delete `resources/js/ssr.ts`
 2. Front-end changes
 
     ::: code-group
 
     ```json [package.json]
     "scripts": {
-        "build": "vite build && vite build --ssr", // [!code --]
-        "build": "vite build", // [!code ++]
         "dev": "vite",
+        "build": "vite build",
+        "build:ssr": "vite build && vite build --ssr", // [!code --]
         "lint": "eslint . --fix"
     }
     ```
 
-    ```js [resources/js/app.js]
-    import { createSSRApp, h } from 'vue'; // [!code --]
-    import { createApp, h } from 'vue'; // [!code ++]
-
-    // ...
-
-    const app = createSSRApp(Root) // [!code --]
-    const app = createApp(Root) // [!code ++]
-    ```
-
-    ```js [vite.config.js]
+    ```js [vite.config.ts]
     plugins: [
         laravel({
-            input: 'resources/js/app.js',
-            ssr: 'resources/js/ssr.js', // [!code --]
+            input: 'resources/js/app.ts',
+            ssr: 'resources/js/ssr.ts', // [!code --]
             refresh: true,
         }),
         // ...
         ssr: { // [!code --]
             noExternal: true, // bundle node server related files, so we don't need node_modules in production // [!code --]
         }, // [!code --]
-    ];
+    ]
     ```
 
     :::

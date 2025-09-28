@@ -29,7 +29,7 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
 
 2. Update Laravel app `.env`
 
-    ```shell
+    ```bash
     # Use any desired domain ending with .localhost
     APP_DOMAIN=laravel-primevue.localhost # referenced by Traefik in docker-compose
     APP_URL="http://${APP_DOMAIN}"
@@ -42,7 +42,7 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
     DB_USERNAME=laravel
     DB_PASSWORD=password
 
-    VITE_PORT=5173 # adjust as needed when running multiple projects
+    VITE_APP_PORT=5173 # adjust as needed when running multiple projects
 
     USER_ID=1000
     GROUP_ID=1000

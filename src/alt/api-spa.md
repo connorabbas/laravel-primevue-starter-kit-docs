@@ -4,10 +4,6 @@
 
 This starter-kit repository provides a Vue SPA (Single Page Application) that connects to a Laravel API backend, authenticated with [Laravel Sanctum](https://laravel.com/docs/master/sanctum). The project provides the same authentication and profile pages/features as the Inertia starter-kit.
 
-::: warning
-Development time/resources are primary allocated to the main Inertia starter kit, this version will not receive any additional features beyond the standard User authentication and profile pages.
-:::
-
 ## Vue SPA Setup
 
 Clone from source repository:
@@ -36,7 +32,7 @@ Alternatively:
 2. Install [Laravel Breeze](https://laravel.com/docs/11.x/starter-kits#laravel-breeze-installation) using the [API Stack](https://laravel.com/docs/11.x/starter-kits#breeze-and-next) option
 3. Setup necessary `.env` configuration values in the Laravel API project
 
-    ```
+    ```bash
     # Example implementation
     # Remember, your SPA and API must share the same top-level domain
     APP_URL=http://api.vue-spa.localhost # Match this value with VITE_API_BASE_URL in the Vue app
@@ -52,7 +48,7 @@ Alternatively:
     ```
 
     ```bash
-    php artisan make:controller PasswordController
+    php artisan make:controller Auth/PasswordController
     ```
 
 5. Copy Controller code
@@ -124,7 +120,7 @@ Alternatively:
 
     ```
 
-    ```php [PasswordController.php]
+    ```php [Auth/PasswordController.php]
     <?php
 
     namespace App\Http\Controllers\Auth;
