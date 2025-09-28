@@ -24,11 +24,11 @@ To view the starter kit in action, you can visit the [demo site](https://demo.la
 
 ## Alternatives
 
-### Branch - Admin Role
+<!-- ### Branch - Admin Role
 
 Want even more out of this starter kit? Check out the [Admin Role](https://github.com/connorabbas/laravel-primevue-starter-kit/tree/feature/admin-role) branch, which provides an Admin Role and permissions features.
 
-Read the [setup docs](/alt/admin-role-branch) to learn more and get started.
+Read the [setup docs](/alt/admin-role-branch) to learn more and get started. -->
 
 ### PrimeVue SPA + Laravel API Starter Kit
 
