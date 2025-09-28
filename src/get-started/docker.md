@@ -18,8 +18,8 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
     ```
 4. Update Laravel app `.env`
 
-    ```env
-    # Use any desired domain ending with .localhost
+    ```bash
+    # Use any desired domain ending with .localhost (or configure https with Traefik locally)
     # Match domain value in docker-compose.local.yml laravel service labels section
     APP_URL=http://laravel-primevue.localhost
 
@@ -34,8 +34,7 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
     WWWUSER=1000
 
     # Update port values as needed when running multiple projects/services
-    #APP_PORT=80 not required when using Traefik reverse proxy
-    VITE_PORT=5173
+    VITE_APP_PORT=5173
     FORWARD_DB_PORT=5432
     ```
 
