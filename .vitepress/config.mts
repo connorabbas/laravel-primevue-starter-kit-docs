@@ -31,7 +31,7 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            { text: 'Demo Application', link: 'https://demo.laravel-primevue-starter-kit.com' },
+            { text: 'Demo', link: 'https://demo.laravel-primevue-starter-kit.com' },
             { text: 'Laravel Docs', link: 'https://laravel.com/docs/master' },
             { text: 'PrimeVue Docs', link: 'https://primevue.org/' },
         ],
@@ -49,7 +49,7 @@ export default defineConfig({
                 items: [
                     { text: 'Introduction', link: '/get-started/introduction' },
                     { text: 'Installation Guide', link: '/get-started/installation-guide' },
-                    { text: 'Development With Docker', link: '/get-started/docker' },
+                    { text: 'Docker', link: '/get-started/docker' },
                 ],
             },
             {
