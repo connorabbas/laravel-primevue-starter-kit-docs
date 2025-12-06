@@ -13,7 +13,7 @@ To view the starter kit in action, you can visit the [demo site](https://demo.la
 ### Features
 
 -   [Auto Import](https://primevue.org/autoimport/) PrimeVue components
--   Extended PrimeVue menu/navigation components utilizing Inertia's [`<Link />`](https://inertiajs.com/links) component and [Lucide Icons](https://lucide.dev/)
+-   Extended PrimeVue menu/navigation components utilizing Inertia's [`<Link />`](https://inertiajs.com/docs/v2/the-basics/links) component and [Lucide Icons](https://lucide.dev/)
 -   [`usePaginatedData()`](/features/composables/usePaginatedData) & [`usePaginatedDataTable()`](/features/composables/usePaginatedDataTable) composables for use with PrimeVue's [`<Paginator />`](https://primevue.org/paginator/) & [`<DataTable />`](https://primevue.org/datatable/) components for easy server-driven pagination/filtering/sorting
 -   Session-based flash messages
 -   Error handling utilizing PrimeVue's [`<Toast />`](https://primevue.org/toast/) component (instead of default full-page modal response)
