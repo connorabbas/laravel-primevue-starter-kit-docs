@@ -8,7 +8,7 @@ The easiest way to get started developing locally is to use either [Laravel Herd
 
 ### Docker
 
-If you want more flexibility and already have Docker knowledge, this starter kit provides a streamlined [Docker development setup](/get-started/docker) to get you up and running in no time. You'll want to use the [Manual (Git)](#manual-git) installation option if you don't want/have PHP, Composer, & Node installed on your machine.
+If you want more flexibility and already have knowledge of Docker (with Docker Compose), this starter kit provides a streamlined [Docker development setup](/get-started/docker) to get you up and running in no time.
 
 ## Laravel Installer
 
