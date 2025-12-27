@@ -23,7 +23,7 @@ If your application is not public facing and does not require server-side render
 Use the following steps to disable SSR:
 
 1. Delete `resources/js/ssr.ts`
-2. Front-end changes
+2. Front-end code changes
 
     ::: code-group
 
@@ -35,6 +35,15 @@ Use the following steps to disable SSR:
 
     createSSRApp(Root) // [!code --]
     createApp(Root) // [!code ++]
+    ```
+
+    ```ts [resources/js/layouts/app/SidebarLayout.vue]
+    import { useStorage } from '@vueuse/core' // [!code ++]
+
+    // ...
+
+    const sidebarOpen = useSsrStorage('desktop-sidebar-open', true) // [!code --]
+    const sidebarOpen = useStorage('desktop-sidebar-open', true) // [!code ++]
     ```
 
     ```json [package.json]
@@ -59,7 +68,7 @@ Use the following steps to disable SSR:
 
     :::
 
-3. Back-end changes
+3. Back-end code changes
    ::: code-group
 
     ```php [app/Http/Middleware/HandleInertiaRequests.php]
