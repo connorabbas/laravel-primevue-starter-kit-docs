@@ -14,18 +14,37 @@ Then start the Node-based Inertia SSR server:
 php artisan inertia:start-ssr
 ```
 
-With the server running, you should be able to access your app within the browser with server-side rendering enabled. You can reference [Inertia's SSR Documentation](https://inertiajs.com/server-side-rendering) for further information.
+With the server running, you should be able to access your app within the browser with server-side rendering enabled. You can reference [Inertia's SSR Documentation](https://inertiajs.com/docs/v2/advanced/server-side-rendering) for further information.
 
 ## Disable SSR / SPA Only Mode
 
 If your application is not public facing and does not require server-side rendering (internal administrative application, dashboard, etc.) then you can remove the SSR related configurations to have the site operate as a traditional SPA, without server-rendered markup and client-side hydration.
 
-Reference the following steps to disable SSR:
+Use the following steps to disable SSR:
 
 1. Delete `resources/js/ssr.ts`
-2. Front-end changes
+2. Front-end code changes
 
     ::: code-group
+
+    ```ts [resources/js/app.ts]
+    import { createSSRApp, DefineComponent, h } from 'vue' // [!code --]
+    import { createApp, DefineComponent, h } from 'vue' // [!code ++]
+
+    // ...
+
+    createSSRApp(Root) // [!code --]
+    createApp(Root) // [!code ++]
+    ```
+
+    ```ts [resources/js/layouts/app/SidebarLayout.vue]
+    import { useStorage } from '@vueuse/core' // [!code ++]
+
+    // ...
+
+    const sidebarOpen = useSsrStorage('desktop-sidebar-open', true) // [!code --]
+    const sidebarOpen = useStorage('desktop-sidebar-open', true) // [!code ++]
+    ```
 
     ```json [package.json]
     "scripts": {
@@ -52,7 +71,7 @@ Reference the following steps to disable SSR:
 
     :::
 
-3. Back-end changes
+3. Back-end code changes
    ::: code-group
 
     ```php [app/Http/Middleware/HandleInertiaRequests.php]

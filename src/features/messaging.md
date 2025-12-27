@@ -4,7 +4,7 @@ Providing effective messaging for user interactions is an essential part of any 
 
 ## Flash Messages
 
-Laravel offers the concept of [session-based flash data](https://laravel.com/docs/master/session#flash-data), this can be paired with Inertia's [shared data props](https://inertiajs.com/shared-data#flash-messages) to provide flash messages displayed using PrimeVue's `<Message />` component, utilizing different [severity levels](https://primevue.org/message/#severity).
+Laravel offers the concept of [session-based flash data](https://laravel.com/docs/master/session#flash-data), this can be paired with Inertia's [shared data props](https://inertiajs.com/docs/v2/data-props/shared-data#flash-messages) to provide flash messages displayed using PrimeVue's `<Message />` component, utilizing different [severity levels](https://primevue.org/message/#severity).
 
 Each layout (header, sidebar, guest auth) is pre-configured with a [`<FlashMessages />`](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/components/FlashMessages.vue) component that will automatically display the session-based flash messages at the top of the page.
 
@@ -41,9 +41,9 @@ A PrimeVue `<Toast />` component and the required [toast service plugin](https:/
 
 ### Error Handling with Toasts
 
-Inertia provides [error handling](https://inertiajs.com/error-handling) for XHR requests utilizing a full-page response modal and Laravel's built-in error pages. However, for SPA-style application flows with asynchronous requests, a full-page blocking modal isn't the most eloquent experience. This starter kit provides an alternative approach, utilizing PrimeVue's `<Toast />` component to display errors / warnings instead.
+Inertia provides [error handling](https://inertiajs.com/docs/v2/advanced/error-handling) for XHR requests utilizing a full-page response modal and Laravel's built-in error pages. However, for SPA-style application flows with asynchronous requests, a full-page blocking modal isn't the most eloquent experience. This starter kit provides an alternative approach, utilizing PrimeVue's `<Toast />` component to display errors / warnings instead.
 
-This functionality is handled by the `respond()` exception method within the `bootstrap/app.php` file, along with an [event listener](https://inertiajs.com/events#invalid) within the `resources/js/app.ts` file to handle the JSON response and trigger the toast/s.
+This functionality is handled by the `respond()` exception method within the `bootstrap/app.php` file, along with an [event listener](https://inertiajs.com/docs/v2/advanced/events#invalid) within the `resources/js/app.ts` file to handle the JSON response and trigger the toast/s.
 
 The toast component [severity](https://primevue.org/toast/#severity) is determined by the error status code: `400` level errors will use the "warn" severity, while `500` level errors will use the "error" severity.
 
