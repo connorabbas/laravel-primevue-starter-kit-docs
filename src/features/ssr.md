@@ -38,6 +38,7 @@ Use the following steps to disable SSR:
     ```
 
     ```ts [resources/js/layouts/app/SidebarLayout.vue]
+    import { useSsrStorage } from '@/composables/useSsrStorage' // [!code --]
     import { useStorage } from '@vueuse/core' // [!code ++]
 
     // ...
