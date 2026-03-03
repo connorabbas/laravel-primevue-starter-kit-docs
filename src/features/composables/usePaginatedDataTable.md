@@ -36,6 +36,6 @@ Depending on your use case (whether or not your data is coming from deferred pro
 
 ## Reference
 
-- [Example - Demo](https://demo.laravel-primevue-starter-kit.com/examples/data-table/contacts)
+- [Example - Demo](https://laravel-primevue.sodakswe.dev/examples/data-table/contacts)
 - [Example - Source Code](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/data-table/contacts/Index.vue)
 - [Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)

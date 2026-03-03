@@ -12,7 +12,7 @@ hero:
           link: /get-started/introduction
         - theme: alt
           text: Visit the Demo
-          link: https://demo.laravel-primevue-starter-kit.com
+          link: https://laravel-primevue.sodakswe.dev
 
 features:
     - icon:
