@@ -49,7 +49,7 @@ For detailed guidance on customization, please refer to the [PrimeVue Styled Mod
 
 ## Demo - Theme Selector
 
-The [demo application](https://demo.laravel-primevue-starter-kit.com) appearance settings page (`/settings/appearance` route) provides a theme selector to showcase the provided preset options.
+The [demo application](https://laravel-primevue.sodakswe.dev) appearance settings page (`/settings/appearance` route) provides a theme selector to showcase the provided preset options.
 
 ![theme-selector](/images/theme-selector-ss.png)
 
