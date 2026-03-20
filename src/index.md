@@ -26,7 +26,7 @@ features:
       details: A comprehensive suite of customizable, feature-rich UI components for Vue.js
       link: https://primevue.org/
     - icon:
-          src: /images/inertia-logo.svg
+          src: /images/inertia-new-logo.png
       title: Inertia.js
       details: The modern monolith, easily bridge a Laravel back-end with a Vue.js front-end
       link: https://inertiajs.com/
