@@ -2,7 +2,11 @@
 
 ## About
 
-This starter-kit repository provides a Vue SPA (Single Page Application) that connects to a Laravel API backend, authenticated with [Laravel Sanctum](https://laravel.com/docs/master/sanctum). The project provides the same authentication and profile pages/features as the Inertia starter-kit.
+This starter-kit repository provides a Vue SPA (Single Page Application) that connects to a Laravel API backend, authenticated with [Laravel Sanctum](https://laravel.com/docs/master/sanctum).
+
+::: warning
+The project provides the same standard authentication and profile pages/features as the Inertia starter-kit, EXCEPT two-factor auth.
+:::
 
 ## Vue SPA Setup
 
