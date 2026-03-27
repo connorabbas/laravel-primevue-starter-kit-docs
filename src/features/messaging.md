@@ -4,7 +4,7 @@ Providing effective messaging for user interactions is an essential part of any 
 
 ## Flash Messages
 
-Laravel offers the concept of [session-based flash data](https://laravel.com/docs/master/session#flash-data), this can be paired with Inertia's [shared data props](https://inertiajs.com/docs/v2/data-props/shared-data#flash-messages) to provide flash messages displayed using PrimeVue's `<Message />` component, utilizing different [severity levels](https://primevue.org/message/#severity).
+Laravel offers the concept of [session-based flash data](https://laravel.com/docs/master/session#flash-data), this can be paired with Inertia's [shared data props](https://inertiajs.com/docs/v3/data-props/shared-data#flash-messages) to provide flash messages displayed using PrimeVue's `<Message />` component, utilizing different [severity levels](https://primevue.org/message/#severity).
 
 Each layout (header, sidebar, guest auth) is pre-configured with a [`<FlashMessages />`](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/components/FlashMessages.vue) component that will automatically display the session-based flash messages at the top of the page.
 
@@ -37,19 +37,19 @@ try {
 
 ## Toast Messages
 
-A PrimeVue `<Toast />` component and the required [toast service plugin](https://primevue.org/toast/#toast-service) are already registered globally at the app level (`app.ts/ssr.ts`). To start using toast messages, simply import and utilize the `useToast()` composable as documented.
+A PrimeVue `<Toast />` component and the required toast service plugin are already registered globally at the app level (`app.ts/ssr.ts`). To start using toast messages, simply import and utilize the `useToast()` composable [as documented](https://primevue.org/toast/#toast-service).
 
 ### Error Handling with Toasts
 
-Inertia provides [error handling](https://inertiajs.com/docs/v2/advanced/error-handling) for XHR requests utilizing a full-page response modal and Laravel's built-in error pages. However, for SPA-style application flows with asynchronous requests, a full-page blocking modal isn't the most eloquent experience. This starter kit provides an alternative approach, utilizing PrimeVue's `<Toast />` component to display errors / warnings instead.
+Inertia provides [error handling](https://inertiajs.com/docs/v3/advanced/error-handling) for XHR requests utilizing a full-page response modal and Laravel's built-in error pages. However, for SPA-style application flows with asynchronous requests, a full-page blocking modal isn't the most user-friendly experience. This starter kit provides an alternative approach, utilizing PrimeVue's `<Toast />` component to display errors / warnings for mutation requests (POST, PATCH, PUT, DELETE).
 
-This functionality is handled by the `respond()` exception method within the `bootstrap/app.php` file, along with an [event listener](https://inertiajs.com/docs/v2/advanced/events#invalid) within the `resources/js/app.ts` file to handle the JSON response and trigger the toast/s.
+This functionality is handled by the `respond()` exception callback within the `bootstrap/app.php` file, paired with registered event listeners for [HTTP exceptions](https://inertiajs.com/docs/v3/advanced/events#http-exception) and [network errors](https://inertiajs.com/docs/v3/advanced/events#network-error) within the `resources/js/app.ts` file to handle the JSON response and trigger the toast/s.
 
 The toast component [severity](https://primevue.org/toast/#severity) is determined by the error status code: `400` level errors will use the "warn" severity, while `500` level errors will use the "error" severity.
 
 ### Custom Error Details
 
-The `500` level "error" severity toast messages will use general-purpose error details defined within the `bootstrap/app.php` file. If you want to return specific error details for a toast message, you can throw a `App\Exceptions\ErrorToastException` exception at the controller level:
+The `500` level "error" severity toast messages will use general-purpose error details defined within the `config/errors.php` file. If you want to return specific error details for a toast message, you can throw a `App\Exceptions\ErrorToastException` exception at the controller level:
 
 ```php
 // In your controller...
