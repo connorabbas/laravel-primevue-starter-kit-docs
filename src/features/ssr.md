@@ -14,7 +14,7 @@ Then start the Node-based Inertia SSR server:
 php artisan inertia:start-ssr
 ```
 
-With the server running, you should be able to access your app within the browser with server-side rendering enabled. You can reference [Inertia's SSR Documentation](https://inertiajs.com/docs/v2/advanced/server-side-rendering) for further information.
+With the server running, you should be able to access your app within the browser with server-side rendering enabled. You can reference [Inertia's SSR Documentation](https://inertiajs.com/docs/v3/advanced/server-side-rendering) for further information.
 
 ## Disable SSR / SPA Only Mode
 
@@ -74,6 +74,10 @@ Use the following steps to disable SSR:
 
 3. Back-end code changes
    ::: code-group
+
+    ```shell [.env]
+    INERTIA_SSR_ENABLED=false
+    ```
 
     ```php [app/Http/Middleware/HandleInertiaRequests.php]
     use Tighten\Ziggy\Ziggy; // [!code --]
