@@ -20,7 +20,7 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
 
     ```bash
     # Use any desired domain ending with .localhost (or configure https with Traefik locally)
-    # Match domain value in docker-compose.local.yml laravel service labels section
+    # Match domain value in docker-compose.dev.yml laravel service labels section
     APP_URL=http://laravel-primevue.localhost
 
     DB_CONNECTION=pgsql
@@ -41,11 +41,11 @@ If you are developing on Windows, it is highly recommended to use [WSL 2](https:
 5. Build the Laravel app container using one of the following techniques:
     - Build manually using docker compose CLI
         ```bash
-        docker compose -f docker-compose.local.yml up -d
+        docker compose -f docker-compose.dev.yml up -d
         ```
     - Use [Laravel Sail](https://laravel.com/docs/master/sail)
     - Build as a [VS Code Dev Container](https://code.visualstudio.com/docs/devcontainers/tutorial) using the `Dev Containers: Reopen in Container` command
 
 ## Additional configuration
 
-If you wish to add additional services, or swap out PostgreSQL with an alternative database, you can reference the [Laravel Sail stubs](https://github.com/laravel/sail/tree/1.x/stubs) and update the `docker-compose.local.yml` file as needed.
+If you wish to add additional services, or swap out PostgreSQL with an alternative database, you can reference the [Laravel Sail stubs](https://github.com/laravel/sail/tree/1.x/stubs) and update the `docker-compose.dev.yml` file as needed.
