@@ -276,7 +276,7 @@ When displaying tabular data, always use `<DataTable>` paired with the `usePagin
 **References:**
 
 - [Composable docs](https://connorabbas.github.io/laravel-primevue-starter-kit-docs/features/composables/usePaginatedDataTable.html)
-- [Demo source](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/data-table/contacts/Index.vue)
+- [Demo source](https://raw.githubusercontent.com/connorabbas/laravel-primevue-starter-kit-demo/refs/heads/master/resources/js/pages/examples/data-table/contacts/Index.vue)
 - [PrimeVue DataTable](https://primevue.org/llms/components/datatable.md)
 
 **Basic usage pattern:**
