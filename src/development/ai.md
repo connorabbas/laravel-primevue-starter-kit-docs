@@ -171,7 +171,7 @@ Any component that accepts or defines a menu items array must type it as `MenuIt
 import { ref, useTemplateRef } from 'vue';
 import type { MenuItem } from '@/types';
 import Menu from '@/components/router-link-menus/Menu.vue';
-import { Pencil, Trash } from 'lucide-vue-next';
+import { Pencil, Trash } from '@lucide/vue';
 
 const contextMenu = useTemplateRef<typeof Menu>('context-menu');
 const contextMenuItems = ref<MenuItem[]>([]);
@@ -220,27 +220,27 @@ function openContextMenu(event: Event, rowData: SomeType) {
 <script setup lang="ts">
 import type { MenuItem } from '@/types';
 import TabMenu from '@/components/router-link-menus/TabMenu.vue';
-import { KeyRound, Palette, ShieldCheck, UserRound } from 'lucide-vue-next';
+import { KeyRound, Palette, ShieldCheck, UserRound } from '@lucide/vue';
 
 const tabs: MenuItem[] = [
     {
         label: 'Profile',
-        icon: UserRound,
+        lucideIcon: UserRound,
         route: route('profile.edit'),
     },
     {
         label: 'Password',
-        icon: KeyRound,
+        lucideIcon: KeyRound,
         route: route('password.edit'),
     },
     {
         label: 'Two-Factor Auth',
-        icon: ShieldCheck,
+        lucideIcon: ShieldCheck,
         route: route('two-factor.show'),
     },
     {
         label: 'Appearance',
-        icon: Palette,
+        lucideIcon: Palette,
         route: route('appearance'),
     },
 ];
@@ -250,6 +250,32 @@ const tabs: MenuItem[] = [
     <TabMenu :items="tabs" />
 </template>
 ```
+
+## Paginated Data Types
+
+All paginated data returned from Laravel controllers must use Laravel's `LengthAwarePaginator` on the backend. On the frontend, type the corresponding Inertia page prop using `LengthAwarePaginator<T>` imported from `@/types/pagination`.
+
+```ts
+import type { LengthAwarePaginator } from '@/types/pagination';
+```
+
+Always provide the specific item type as the generic — never use `any` or leave it untyped:
+
+```ts
+// Correct
+defineProps<{
+    users: LengthAwarePaginator<User>;
+    posts: LengthAwarePaginator<Post>;
+}>();
+
+// Wrong
+defineProps<{
+    users: LengthAwarePaginator<any>;
+    users: any;
+}>();
+```
+
+Pagination type reference: https://raw.githubusercontent.com/connorabbas/laravel-primevue-starter-kit/refs/heads/master/resources/js/types/pagination.d.ts
 
 ## DataTable & Pagination
 
@@ -276,7 +302,7 @@ When displaying tabular data, always use `<DataTable>` paired with the `usePagin
 **References:**
 
 - [Composable docs](https://connorabbas.github.io/laravel-primevue-starter-kit-docs/features/composables/usePaginatedDataTable.html)
-- [Demo source](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/data-table/contacts/Index.vue)
+- [Demo source](https://raw.githubusercontent.com/connorabbas/laravel-primevue-starter-kit-demo/refs/heads/master/resources/js/pages/examples/data-table/contacts/Index.vue)
 - [PrimeVue DataTable](https://primevue.org/llms/components/datatable.md)
 
 **Basic usage pattern:**
@@ -285,8 +311,12 @@ When displaying tabular data, always use `<DataTable>` paired with the `usePagin
 <script setup lang="ts">
 import { usePaginatedDataTable } from '@/composables/usePaginatedDataTable';
 import { FilterMatchMode } from '@primevue/core/api';
+import type { LengthAwarePaginator } from '@/types/pagination';
+import type { Contact } from '@/types';
 
-const props = defineProps<{ contacts: any }>();
+const props = defineProps<{
+    contacts: LengthAwarePaginator<Contact>;
+}>();
 
 const { filters, processing, pagination, firstDatasetIndex, filter, sort, paginate, reset } = usePaginatedDataTable(
     'contacts',
@@ -364,6 +394,264 @@ const { filters, processing, pagination, firstDatasetIndex, filter, sort, pagina
 
 <!-- WRONG: standalone input outside the table -->
 <InputText v-model="searchQuery" @input="fetchData()" />
+```
+
+## Paginated Cards (Non-Table Data)
+
+When paginated, filtered, or sorted data doesn't fit a tabular layout, use `usePaginatedData()` paired with PrimeVue's `<Paginator>` component. Present items using `<Card>` components in a grid or list, and use `<Skeleton>` for the loading state while data is in-flight or changing.
+
+Use this pattern for card grids, list layouts, gallery-style pages, feed-style results, and other non-tabular result sets. Use `<DataTable>` only when the content is genuinely tabular.
+
+**Composable: `usePaginatedData`**
+
+Same parameters as `usePaginatedDataTable`, but `filter()` and `sort()` accept options callbacks instead of DataTable events, making it suitable for any UI shape.
+
+Key returned values:
+
+- `processing` — `true` while a request is in-flight; use to toggle Skeleton visibility.
+- `filters` / `sorting` / `pagination` — reactive state.
+- `firstDatasetIndex` — zero-based index of the first item on the current page.
+- `filteredOrSorted` — `true` if any filters or sorting are active.
+- `debounceInputFilter(fn)` — debounced wrapper for text filter inputs; pass `() => filter()` as the callback.
+- `paginate(event)` — pass to `@page` on `<Paginator>`.
+- `filter()` — resets to page 1 and fetches with current filters.
+- `hardReset()` — clears all state and performs a fresh Inertia visit.
+
+> **Important:** `usePaginatedData` requires a `queryParams` shared prop to be present, which the starter kit's `HandleInertiaRequests` middleware adds automatically.
+
+**References:**
+
+- [Composable docs](https://connorabbas.github.io/laravel-primevue-starter-kit-docs/features/composables/usePaginatedData.html)
+- [Demo source](https://raw.githubusercontent.com/connorabbas/laravel-primevue-starter-kit-demo/refs/heads/master/resources/js/pages/examples/paginator/contacts/Index.vue)
+- [PrimeVue Paginator](https://primevue.org/llms/components/paginator.md)
+- [PrimeVue Card](https://primevue.org/llms/components/card.md)
+- [PrimeVue Skeleton](https://primevue.org/llms/components/skeleton.md)
+
+**Usage pattern:**
+
+```vue
+<script setup lang="ts">
+import { computed } from 'vue';
+import { usePaginatedData } from '@/composables/usePaginatedData';
+import { FilterMatchMode } from '@primevue/core/api';
+import type { LengthAwarePaginator } from '@/types/pagination';
+import type { Project } from '@/types';
+
+const props = defineProps<{
+    projects: LengthAwarePaginator<Project>;
+}>();
+
+const { filters, processing, pagination, firstDatasetIndex, debounceInputFilter, filter, paginate, reset } =
+    usePaginatedData('projects', {
+        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    });
+
+// Use pagination.rows (composable state) for skeleton count, not props.per_page
+const skeletonItems = computed(() => Array.from({ length: pagination.value.rows }));
+</script>
+
+<template>
+    <div class="flex flex-col gap-6">
+        <!-- Filter controls -->
+        <div class="flex items-center gap-2">
+            <InputText
+                :model-value="filters.global.value"
+                placeholder="Search projects"
+                @update:model-value="
+                    (value) => {
+                        filters.global.value = value;
+                        debounceInputFilter(() => filter());
+                    }
+                "
+            />
+            <Button
+                label="Reset"
+                severity="secondary"
+                variant="outlined"
+                @click="reset()"
+            />
+        </div>
+
+        <!-- Loading state: Skeleton cards matching the final card layout -->
+        <div
+            v-if="processing"
+            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+        >
+            <Card
+                v-for="(_, index) in skeletonItems"
+                :key="index"
+            >
+                <template #content>
+                    <div class="flex flex-col gap-3">
+                        <Skeleton
+                            height="1.5rem"
+                            width="60%"
+                        />
+                        <Skeleton
+                            height="1rem"
+                            width="100%"
+                        />
+                        <Skeleton
+                            height="1rem"
+                            width="85%"
+                        />
+                    </div>
+                </template>
+            </Card>
+        </div>
+
+        <!-- Loaded state -->
+        <div
+            v-else
+            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+        >
+            <Card
+                v-for="project in props.projects.data"
+                :key="project.id"
+            >
+                <template #title>{{ project.name }}</template>
+                <template #content>
+                    <p>
+                        {{ project.description ?? 'No description provided.' }}
+                    </p>
+                </template>
+            </Card>
+        </div>
+
+        <Paginator
+            :rows="pagination.rows"
+            :total-records="props.projects.total"
+            :first="firstDatasetIndex"
+            @page="paginate"
+        />
+    </div>
+</template>
+```
+
+- Use `pagination.value.rows` (from the composable) for the skeleton item count — not `props.per_page` directly.
+- Mirror the card's internal structure with appropriately sized `<Skeleton>` elements.
+- Always place `<Paginator>` outside and below the card grid, not inside any individual card.
+- Wire filter text inputs using `debounceInputFilter(() => filter())` — do not call `filter()` directly on every keystroke.
+- Use `filteredOrSorted` to conditionally show a reset/clear button, calling `hardReset()` on click.
+
+### When to use this pattern
+
+- Card grids and resource galleries
+- Search result and directory pages
+- Activity feeds and catalog pages
+- Mobile-first layouts where a table would be awkward
+- Any result set where rows don't map cleanly to columns
+
+## Icons
+
+All icons must come from **Lucide** (`@lucide/vue`). The `primeicons` package is not installed.
+
+- **Never** use PrimeIcons class strings such as `pi pi-*`.
+- **Never** import or depend on the `primeicons` package.
+- **Never** pass icon class names into PrimeVue components when the component provides an icon slot.
+- Import only the specific Lucide icons needed by the page/component.
+- Render icons as Vue components **inside the relevant PrimeVue slot template** — use the MCP's `get_component_slots` to confirm the correct slot name.
+- For menu models, use the custom `MenuItem['lucideIcon']` field from `@/types` instead of PrimeVue's string `icon` field.
+
+### Correct pattern
+
+```vue
+<script setup lang="ts">
+import { Link as InertiaLink, usePage } from '@inertiajs/vue3';
+import { LayoutGrid } from '@lucide/vue';
+
+const page = usePage();
+</script>
+
+<template>
+    <Button
+        v-if="page.props.auth.user"
+        :as="InertiaLink"
+        :href="route('dashboard')"
+        label="Dashboard"
+        size="large"
+        raised
+    >
+        <template #icon>
+            <LayoutGrid />
+        </template>
+    </Button>
+</template>
+```
+
+### Incorrect patterns
+
+```vue
+<!-- WRONG: PrimeIcons class string -->
+<Button icon="pi pi-home" label="Home" />
+
+<!-- WRONG: manual icon placed outside the component slot -->
+<Button label="Home" />
+<Home />
+```
+
+## Button Links
+
+When a link is visually presented as a button, always render it as a **PrimeVue `<Button>`** using Inertia's `<Link>` via the button's `as` prop.
+
+- Import `Link` from `@inertiajs/vue3` as `InertiaLink`.
+- Use `:as="InertiaLink"` together with `:href="route(...)"` on the `<Button>`.
+- Apply the `no-underline` class on the button root when using a link-style or text-style button.
+- **Do not** wrap `<Button>` in `<Link>`.
+- **Do not** wrap `<Link>` in `<Button>`.
+- **Do not** use plain `<a>` tags styled to look like PrimeVue buttons for internal app navigation.
+- Internal navigation must preserve Inertia SPA behavior.
+
+### Correct pattern
+
+```vue
+<script setup lang="ts">
+import ApplicationLogo from '@/components/ApplicationLogo.vue';
+import { Link as InertiaLink } from '@inertiajs/vue3';
+import { LayoutGrid } from '@lucide/vue';
+</script>
+
+<template>
+    <!-- Standard nav button link -->
+    <Button
+        :as="InertiaLink"
+        :href="route('dashboard')"
+        label="Dashboard"
+        class="no-underline"
+    >
+        <template #icon>
+            <LayoutGrid />
+        </template>
+    </Button>
+
+    <!-- Link-variant button with custom PT layout -->
+    <Button
+        :as="InertiaLink"
+        :href="route('welcome')"
+        variant="link"
+        pt:root:class="flex items-center justify-start gap-4 no-underline p-0"
+    >
+        <ApplicationLogo class="block h-8 lg:h-10 w-auto fill-current text-surface-900 dark:text-surface-0" />
+        <span class="font-bold">Laravel + PrimeVue Starter Kit</span>
+    </Button>
+</template>
+```
+
+### Incorrect patterns
+
+```vue
+<!-- WRONG: wrapping Button with Link -->
+<InertiaLink :href="route('dashboard')">
+    <Button label="Dashboard" />
+</InertiaLink>
+
+<!-- WRONG: wrapping Link with Button -->
+<Button>
+    <InertiaLink :href="route('dashboard')">Dashboard</InertiaLink>
+</Button>
+
+<!-- WRONG: plain anchor tag for internal navigation -->
+<a :href="route('dashboard')" class="p-button">Dashboard</a>
 ```
 ````
 
