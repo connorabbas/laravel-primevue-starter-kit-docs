@@ -214,36 +214,50 @@ function openContextMenu(event: Event, rowData: SomeType) {
 
 ### `TabMenu` note
 
-`TabMenu` uses an `items` prop (not `model`) and automatically derives the active tab from Ziggy's `route().current()`. Set `active: true` on items to control the active highlight explicitly when needed.
+`TabMenu` uses an `items` prop (not `model`) and determines the active tab from each item's `active` boolean.
+
+- Derive active state in the parent component (for example with `usePage().props.currentRouteName`).
+- Build item URLs with `route` from `@/utils/route`.
+- Set `active: true` on exactly one item for predictable highlighting.
 
 ```vue
 <script setup lang="ts">
+import { computed } from 'vue';
+import { usePage } from '@inertiajs/vue3';
 import type { MenuItem } from '@/types';
 import TabMenu from '@/components/router-link-menus/TabMenu.vue';
 import { KeyRound, Palette, ShieldCheck, UserRound } from '@lucide/vue';
+import { route } from '@/utils/route';
 
-const tabs: MenuItem[] = [
+const page = usePage();
+const currentRoute = computed(() => page.props.currentRouteName);
+
+const tabs = computed<MenuItem[]>(() => [
     {
         label: 'Profile',
         lucideIcon: UserRound,
         route: route('profile.edit'),
+        active: currentRoute.value === 'profile.edit',
     },
     {
         label: 'Password',
         lucideIcon: KeyRound,
         route: route('password.edit'),
+        active: currentRoute.value === 'password.edit',
     },
     {
         label: 'Two-Factor Auth',
         lucideIcon: ShieldCheck,
         route: route('two-factor.show'),
+        active: currentRoute.value === 'two-factor.show',
     },
     {
         label: 'Appearance',
         lucideIcon: Palette,
         route: route('appearance'),
+        active: currentRoute.value === 'appearance',
     },
-];
+]);
 </script>
 
 <template>
@@ -657,18 +671,58 @@ import { LayoutGrid } from '@lucide/vue';
 
 :::
 
-### Instructions File
+## Instructions File
 
-To invoke this skill automatically you can add the following section to your instructions file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, etc.)
+To provide more context about the starter kit's preferred patterns, and to invoke the `primevue-development` skill automatically you can add the following section to the end of your instructions file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, etc.)
 
 ```md
-# Laravel Boost Guidelines
+<laravel-primevue-starter-kit-guidelines>
 
-...
+=== starter kit guideline rules ===
+
+# Laravel + PrimeVue Starter Kit Guidelines
+
+## Scope & Precedence
+
+- These starter-kit guidelines extend `<laravel-boost-guidelines>` and take precedence where they conflict.
+
+## Foundational Context
+
+This application is starter kit based on Laravel + PrimeVue components (styled mode), relevant packages & versions are listed below. You are an expert with them all. Ensure you abide by these specific packages & versions.
+
+- inertiajs/inertia-laravel (INERTIA_LARAVEL) - v3
+- spatie/laravel-data (LARAVEL_DATA) - v4
+- spatie/laravel-typescript-transformer (LARAVEL_TYPESCRIPT_TRANSFORMER) - v3
+- @inertiajs/vue3 (INERTIA_VUE) - v3
+- primevue (PRIMEVUE) - v4
+- tailwindcss (TAILWINDCSS) - v4
+- vue (VUE) - v3
+- eslint (ESLINT) - v10
+- @lucide/vue (LUCIDE) - v1
+- @vueuse/core (VUEUSE) - v14
+
+## Data Contracts
+
+- For structured data contracts in application code, use DTO/value object classes (prefer `spatie/laravel-data` `Data` objects).
+- For Inertia page props, backend payloads should be represented by `Data` classes and passed to `Inertia::render(...)` as typed objects (not ad-hoc associative arrays).
+- Annotate frontend-facing `Data` classes with `#[TypeScript]` so they are emitted to `resources/js/types/generated.d.ts` by the TypeScript transformer.
+- After creating/updating any `Data` class or route signatures, run `php artisan typescript:transform` (or rely on the watch process in `composer run dev`) so TS contracts stay in sync.
+- Do not use associative arrays for internal structured payloads.
+- Flat/list arrays are allowed when type-hinted with generics (for example `array<int, FooData>`).
+- Associative arrays are allowed only at framework boundaries where required (for example `Inertia::render(...)` props, Form Request `rules()`, config files, validation message maps).
+- Shared props must use the generated Data types in frontend declarations. Example: `auth.user` is shared as `UserData` in `app/Http/Middleware/HandleInertiaRequests.php` and typed as `App.Data.UserData | null` in `resources/js/types/index.d.ts`.
+- For paginated page props, always transform model items into Data objects before returning to Inertia. Prefer chaining `->through(...)` on the paginator and returning the Data object from the callback.
+- Add explicit PHPDoc generics for paginated results and transformed collections so the contract is clear (for example `LengthAwarePaginator<int, UserData>` after transformation).
+- On the frontend, consume paginator props with `LengthAwarePaginator<T>` from `resources/js/types/pagination.d.ts`, where `T` is the generated Data type (for example `LengthAwarePaginator<App.Data.UserData>`).
+- In Vue pages/components, use explicit prop typing with shared/page prop composition (for example `defineProps<AppPageProps<{ users: LengthAwarePaginator<App.Data.UserData> }>>()`).
+
+## Frontend Routing
+
+- In Vue or TypeScript files, import `route` from `@/utils/route`.
+- The `@/utils/route` helper function is generated by the `spatie/laravel-typescript-transformer` composer package using the `php artisan typescript:transform` command, DO NOT alter the contents of the file directly
+- Do not rely on global route helpers or pass in route data from controllers to Vue page props.
 
 ## Skills Activation
-
-...
 
 - `primevue-development` — Activate for every Vue page or feature. All UI elements must use PrimeVue v4 components. Triggers include: creating or editing any Vue page/component, adding buttons, forms, inputs, dialogs, menus, tables, or any other UI element, working with DataTable and column filters, applying layout or styling, selecting between PrimeVue components, and customizing theme tokens or Pass Through options.
 
@@ -679,4 +733,6 @@ To invoke this skill automatically you can add the following section to your ins
 - IMPORTANT: Activate the `primevue-development` skill whenever working with any Vue UI — all component, styling, layout, and DataTable decisions are governed by that skill.
 - All UI must use PrimeVue components. Never create custom UI components; always check the PrimeVue catalog first and ask the user if nothing fits.
 - Always use the PrimeVue MCP server (`@primevue/mcp`) before implementing any component. Do not rely on memory for props, slots, or events.
+
+</laravel-primevue-starter-kit-guidelines>
 ```
