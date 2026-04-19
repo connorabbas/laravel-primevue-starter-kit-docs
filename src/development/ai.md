@@ -673,7 +673,7 @@ import { LayoutGrid } from '@lucide/vue';
 
 ## Instructions File
 
-To provide more general context about the starter kit's preferred patterns, and to invoke the `primevue-development` skill automatically you can add the following section to the end of your instructions file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, etc.)
+To provide more context about the starter kit's preferred patterns, and to invoke the `primevue-development` skill automatically you can add the following section to the end of your instructions file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, etc.)
 
 ```md
 <laravel-primevue-starter-kit-guidelines>
