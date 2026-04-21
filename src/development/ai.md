@@ -71,6 +71,10 @@ Key tools:
 - Check sibling pages in `resources/js/pages/` for existing usage patterns before writing new markup.
 - Prefer composition of existing PrimeVue components over any custom implementation.
 
+## Inertia Flash Notifications
+
+- For actions that require user-facing feedback after a server mutation, handle notifications server-side with `Inertia::flash(...)` (following project conventions in `AGENTS.md`) instead of manually wiring page-level `useToast()` success handlers or inline `Message` components. Manual Toasts should generally only be configured for client-side only actions (e.g., clipboard copy, etc.)
+
 ## Styled Mode & Theming
 
 This project uses PrimeVue's **styled mode** with a custom preset located in `resources/js/theme/`. The active preset is imported in `resources/js/app.ts`.
@@ -267,10 +271,10 @@ const tabs = computed<MenuItem[]>(() => [
 
 ## Paginated Data Types
 
-All paginated data returned from Laravel controllers must use Laravel's `LengthAwarePaginator` on the backend. On the frontend, type the corresponding Inertia page prop using `LengthAwarePaginator<T>` imported from `@/types/pagination`.
+All paginated data returned from Laravel controllers must use Laravel's `LengthAwarePaginator` on the backend. On the frontend, type the corresponding Inertia page prop using `LengthAwarePaginator<T>` imported from `@/types`.
 
 ```ts
-import type { LengthAwarePaginator } from '@/types/pagination';
+import type { LengthAwarePaginator } from '@/types';
 ```
 
 Always provide the specific item type as the generic — never use `any` or leave it untyped:
@@ -325,7 +329,7 @@ When displaying tabular data, always use `<DataTable>` paired with the `usePagin
 <script setup lang="ts">
 import { usePaginatedDataTable } from '@/composables/usePaginatedDataTable';
 import { FilterMatchMode } from '@primevue/core/api';
-import type { LengthAwarePaginator } from '@/types/pagination';
+import type { LengthAwarePaginator } from '@/types';
 import type { Contact } from '@/types';
 
 const props = defineProps<{
@@ -448,7 +452,7 @@ Key returned values:
 import { computed } from 'vue';
 import { usePaginatedData } from '@/composables/usePaginatedData';
 import { FilterMatchMode } from '@primevue/core/api';
-import type { LengthAwarePaginator } from '@/types/pagination';
+import type { LengthAwarePaginator } from '@/types';
 import type { Project } from '@/types';
 
 const props = defineProps<{
@@ -713,8 +717,18 @@ This application is starter kit based on Laravel + PrimeVue components (styled m
 - Shared props must use the generated Data types in frontend declarations. Example: `auth.user` is shared as `UserData` in `app/Http/Middleware/HandleInertiaRequests.php` and typed as `App.Data.UserData | null` in `resources/js/types/index.d.ts`.
 - For paginated page props, always transform model items into Data objects before returning to Inertia. Prefer chaining `->through(...)` on the paginator and returning the Data object from the callback.
 - Add explicit PHPDoc generics for paginated results and transformed collections so the contract is clear (for example `LengthAwarePaginator<int, UserData>` after transformation).
-- On the frontend, consume paginator props with `LengthAwarePaginator<T>` from `resources/js/types/pagination.d.ts`, where `T` is the generated Data type (for example `LengthAwarePaginator<App.Data.UserData>`).
+- On the frontend, consume paginator props with `LengthAwarePaginator<T>` imported from `@/types` (re-exported from `resources/js/types/pagination.d.ts`), where `T` is the generated Data type (for example `LengthAwarePaginator<App.Data.UserData>`).
 - In Vue pages/components, use explicit prop typing with shared/page prop composition (for example `defineProps<AppPageProps<{ users: LengthAwarePaginator<App.Data.UserData> }>>()`).
+
+## Inertia Flash Notifications
+
+- For server-driven notifications, use `Inertia::flash(...)` instead of Laravel session flash keys like `flash_success`, `flash_warn`, or page-local ad hoc props.
+- Use suffix-based flash key naming:
+  - `<severity>_toast` to trigger global toast notifications.
+  - `<severity>_message` to render inline `FlashMessages` content.
+- Use severity prefixes: `success`, `info`, `warn`, `error`. Unknown prefixes fall back to `secondary` in the frontend.
+- Toast rendering is centralized in `resources/js/composables/useInertiaRouterEvents.ts` via `router.on('flash', ...)`; do not duplicate mutation-success toasts in page-level `onSuccess` callbacks.
+- Inline message rendering is centralized in `resources/js/components/FlashMessages.vue`; use `*_message` flash keys when you want visible page-level messaging.
 
 ## Frontend Routing
 
