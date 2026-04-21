@@ -33,8 +33,18 @@ Use the following steps to disable SSR:
 
     // ...
 
-    createSSRApp(Root) // [!code --]
-    createApp(Root) // [!code ++]
+    createSSRApp({ // [!code --]
+    createApp({  // [!code ++]
+        setup: () => {
+            // Inertia router events for Error toast handling, flash data, etc.
+            useInertiaRouterEvents()
+        },
+        render: () => h('div', [
+            // Root template with global toast component
+            h(App, props),
+            h(Toast, { position: 'bottom-right' })
+        ])
+    })
     ```
 
     ```ts [resources/js/layouts/app/SidebarLayout.vue]
