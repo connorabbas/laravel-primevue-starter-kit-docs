@@ -19,7 +19,7 @@ features:
           src: /images/laravel-logo.svg
       title: Laravel
       details: The PHP framework for web artisans, the most productive way to ship web apps
-      link: https://laravel.com/docs/master
+      link: https://laravel.com/
     - icon:
           src: /images/primevue-logo.webp
       title: PrimeVue Components

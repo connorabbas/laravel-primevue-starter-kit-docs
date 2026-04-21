@@ -74,6 +74,6 @@ try {
 } catch (ExceptionWarrantingCustomErrorMessage $e) {
     report($e);
 
-    Inertia::flash('error_toast', 'Update failed, we experienced an issue.')->back();
+    return Inertia::flash('error_toast', 'Update failed, we experienced an issue.')->back();
 }
 ```
