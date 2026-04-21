@@ -26,16 +26,19 @@ Depending on your use case (whether or not your data is coming from deferred pro
     -   `filteredOrSorted: ComputedRef<boolean>`
     -   `debounceInputFilter: (fn: () => void) => void`
     -   `scrollToTop: () => void`
-    -   `fetchData(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>`
+    -   `fetchData(options: InertiaRouterFetchCallbacks<PaginatedDataVisitPayload> = {}): Promise<Page<PageProps>>`
     -   `paginate(event: PageState | DataTablePageEvent): Promise<Page<PageProps>>`
     -   `hardReset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>`
 
 -   `filter(event: DataTableFilterEvent): void` - Applies filters from the DataTable event & fetches.
 -   `sort(event: DataTableSortEvent): void` - Applies sorting from the DataTable event & fetches.
--   `reset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Resets filters, sorting & pagination to initial values, then fetches.
+-   `reset(options: InertiaRouterFetchCallbacks<PaginatedDataVisitPayload> = {}): Promise<Page<PageProps>>` - Resets filters, sorting & pagination to initial values, then fetches.
+
+::: info
+Callback options use Inertia's native `VisitOptions` callback signatures inherited from `usePaginatedData`.
+:::
 
 ## Reference
 
 - [Example - Demo](https://laravel-primevue.sodakswe.dev/examples/data-table/contacts)
 - [Example - Source Code](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/data-table/contacts/Index.vue)
-- [Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)

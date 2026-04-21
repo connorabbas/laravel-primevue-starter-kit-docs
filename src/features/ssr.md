@@ -79,20 +79,4 @@ Use the following steps to disable SSR:
     INERTIA_SSR_ENABLED=false
     ```
 
-    ```php [app/Http/Middleware/HandleInertiaRequests.php]
-    use Tighten\Ziggy\Ziggy; // [!code --]
-
-    // ...
-
-    return [
-        ...parent::share($request),
-        'colorScheme' => fn () => $request->cookie('colorScheme', 'auto'), // [!code --]
-        'ziggy' => fn () => [ // [!code --]
-            ...(new Ziggy())->toArray(), // [!code --]
-            'location' => $request->url(), // [!code --]
-        ], // [!code --]
-        // ...
-    ];
-    ```
-
     :::

@@ -1,66 +1,79 @@
 # Messaging
 
-Providing effective messaging for user interactions is an essential part of any web application. This starter kit provides an easy to way to deliver messaging content and errors, utilizing PrimeVue's [`<Message />`](https://primevue.org/message/) and [`<Toast />`](https://primevue.org/toast/) components.
+Providing effective messaging for user interactions is an essential part of any web application. This starter kit provides an easy to way to deliver messaging content and errors utilizing PrimeVue's `<Message />` and `<Toast />` components, powered by Inertia's flash data and global router event listeners.
 
 ## Flash Messages
 
-Laravel offers the concept of [session-based flash data](https://laravel.com/docs/master/session#flash-data), this can be paired with Inertia's [shared data props](https://inertiajs.com/docs/v3/data-props/shared-data#flash-messages) to provide flash messages displayed using PrimeVue's `<Message />` component, utilizing different [severity levels](https://primevue.org/message/#severity).
+Server-driven messages are flashed using [`Inertia::flash()`](https://inertiajs.com/docs/v3/data-props/flash-data) and automatically rendered client-side with the correlated PrimeVue component based on the flash key suffix:
 
-Each layout (header, sidebar, guest auth) is pre-configured with a [`<FlashMessages />`](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/components/FlashMessages.vue) component that will automatically display the session-based flash messages at the top of the page.
+- `<severity>_message` renders an inline [`<Message />`](https://primevue.org/message/)
+- `<severity>_toast` triggers a [`<Toast />`](https://primevue.org/toast/) notification
 
-The following flash message types are available:
+Supported severity prefixes: `success`, `info`, `warn`, `error`. Unknown prefixes will fall back to `secondary`.
 
--   **success** - For successful user interactions: creating/updating resources, uploading files, etc. (green)
--   **info** - To provide useful information (blue)
--   **warn** - Show a warning, not as critical as an error (yellow)
--   **error** - Used for exceptions or failed actions (red)
--   **message** - A general message (gray/secondary)
+This functionality is handled by the `resources/js/components/FlashMessages.vue` component, paired with Inertia's global [`flash`](https://inertiajs.com/docs/v3/advanced/events#flash) event listener.
 
-To flash a message, reference the flash type prefixed with "flash\_" as the key argument, for example:
+In your controller:
 
 ```php
-// In your controller...
+// Global toast
+Inertia::flash('success_toast', 'Changes saved');
+```
 
-// Chained to session helper
-session()->flash('flash_success', 'Success - Resource created!');
+```php
+// Inline closable message
+Inertia::flash('warn_message', 'You are running low on tokens...');
+```
 
-// Or with a redirect
+```php
+// Custom error handling
 try {
     // ...
 } catch (Throwable $e) {
     report($e);
-    return redirect()
-        ->route('example-route')
-        ->with('flash_error', 'Error - Update failed, we experienced an issue.');
+
+    Inertia::flash('error_message', 'Update failed, we experienced an issue.');
+
+    return redirect()->route('example-route');
 }
 ```
 
-## Toast Messages
+You can even flash multiple messages at once:
 
-A PrimeVue `<Toast />` component and the required toast service plugin are already registered globally at the app level (`app.ts/ssr.ts`). To start using toast messages, simply import and utilize the `useToast()` composable [as documented](https://primevue.org/toast/#toast-service).
+```php
+Inertia::flash([
+    'success_toast' => 'Account created',
+    'info_message' => 'Next step: review your settings',
+]);
+```
 
-### Error Handling with Toasts
+::: info
+For client-only actions (e.g., clipboard copy), you should still use [`useToast()`](https://primevue.org/toast/#toast-service) directly.
+:::
 
-Inertia provides [error handling](https://inertiajs.com/docs/v3/advanced/error-handling) for XHR requests utilizing a full-page response modal and Laravel's built-in error pages. However, for SPA-style application flows with asynchronous requests, a full-page blocking modal isn't the most user-friendly experience. This starter kit provides an alternative approach, utilizing PrimeVue's `<Toast />` component to display errors / warnings for mutation requests (POST, PATCH, PUT, DELETE).
+## Automatic Toast Error Handling
 
-This functionality is handled by the `respond()` exception callback within the `bootstrap/app.php` file, paired with registered event listeners for [HTTP exceptions](https://inertiajs.com/docs/v3/advanced/events#http-exception) and [network errors](https://inertiajs.com/docs/v3/advanced/events#network-error) within the `resources/js/app.ts` file to handle the JSON response and trigger the toast/s.
+Inertia provides [error handling](https://inertiajs.com/docs/v3/advanced/error-handling) for XHR requests utilizing a full-page response modal and Laravel's built-in error pages. However, for SPA-style application flows with asynchronous requests, a full-page blocking modal isn't the most user-friendly experience. This starter kit provides an alternative approach, utilizing PrimeVue's `<Toast />` component to automatically display errors / warnings for failed mutation requests (POST, PATCH, PUT, DELETE) or network errors. You do not need to manually wire `useToast()` error handlers in your Vue pages.
 
-The toast component [severity](https://primevue.org/toast/#severity) is determined by the error status code: `400` level errors will use the "warn" severity, while `500` level errors will use the "error" severity.
+This functionality is handled by the `respond()` exception callback in `bootstrap/app.php`, paired with Inertia's global [`httpException`](https://inertiajs.com/docs/v3/advanced/events#http-exception) and [`networkError`](https://inertiajs.com/docs/v3/advanced/events#network-error) event listeners.
 
-### Custom Error Details
+- `4xx` status codes display a "warn" severity toast
+- `5xx` status codes display an "error" severity toast
+- Network failures display a connection error toast
 
-The `500` level "error" severity toast messages will use general-purpose error details defined within the `config/errors.php` file. If you want to return specific error details for a toast message, you can throw a `App\Exceptions\ErrorToastException` exception at the controller level:
+Error details come from `config/errors.php` and can be customized.
+
+### Custom Error Toasts
+
+As covered in the previous [Flash Messages](/features/messaging.html#flash-messages) section, you can output custom message information using the `<severity>_toast` flash key if desired:
 
 ```php
 // In your controller...
-
-use App\Exceptions\ErrorToastException;
-
 try {
     // ...
-} catch (ExceptionWarrantingCustomErrorDetails $e) {
+} catch (ExceptionWarrantingCustomErrorMessage $e) {
     report($e);
-    // Will trigger an "error" severity level toast message on the front-end
-    throw new ErrorToastException('Specific error message...');
+
+    Inertia::flash('error_toast', 'Update failed, we experienced an issue.')->back();
 }
 ```
