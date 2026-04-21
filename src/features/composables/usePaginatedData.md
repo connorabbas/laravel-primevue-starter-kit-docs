@@ -24,15 +24,18 @@ This composable requires a `queryParams` shared data prop containing the url que
 -   `filteredOrSorted: ComputedRef<boolean>` - `true` if filters or sorting are active.
 -   `debounceInputFilter: (fn: () => void) => void` - Debounced wrapper to throttle filter input.
 -   `scrollToTop: () => void` - Smoothly scrolls the window to the top.
--   `fetchData(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Performs an Inertia GET visit with current filters, sorting, and pagination.
+-   `fetchData(options: InertiaRouterFetchCallbacks<PaginatedDataVisitPayload> = {}): Promise<Page<PageProps>>` - Performs an Inertia GET visit with current filters, sorting, and pagination.
 -   `paginate(event: PageState | DataTablePageEvent): Promise<Page<PageProps>>` - Updates pagination state & fetches.
--   `filter(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Resets to page 1 & fetches with current filters and sorting.
--   `reset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Resets filters, sorting & pagination to initial values, then fetches.
+-   `filter(options: InertiaRouterFetchCallbacks<PaginatedDataVisitPayload> = {}): Promise<Page<PageProps>>` - Resets to page 1 & fetches with current filters and sorting.
+-   `reset(options: InertiaRouterFetchCallbacks<PaginatedDataVisitPayload> = {}): Promise<Page<PageProps>>` - Resets filters, sorting & pagination to initial values, then fetches.
 -   `hardReset(options: InertiaRouterFetchCallbacks = {}): Promise<Page<PageProps>>` - Performs a fresh Inertia visit, clearing URL params.
--   `parseUrlParams(params: PaginatedFilteredSortedQueryParams): void` - Manually set state from URL params.
+-   `parseUrlParams(): void` - Hydrates local state from the current URL query params.
+
+::: info
+`InertiaRouterFetchCallbacks` map to Inertia's native `VisitOptions` callbacks. When provided, `onFinish` receives the active Inertia visit object.
+:::
 
 ## Reference
 
 - [Example - Demo](https://laravel-primevue.sodakswe.dev/examples/paginator/contacts)
 - [Example - Source Code](https://github.com/connorabbas/laravel-primevue-starter-kit-demo/blob/master/resources/js/pages/examples/paginator/contacts/Index.vue)
-- [Types](https://github.com/connorabbas/laravel-primevue-starter-kit/blob/master/resources/js/types/index.d.ts)
