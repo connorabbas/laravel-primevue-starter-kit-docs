@@ -4,7 +4,7 @@ This starter kit intentionally does not ship with AI configuration files, since 
 
 ## MCP
 
-When working with AI using this starter kit you should configure the official [PrimeVue MCP Server](https://primevue.org/mcp/) and [Laravel Boost](https://laravel.com/docs/master/boost) to provide your coding agent with useful tools that will greatly improve the accuracy of your code.
+When working with AI using this starter kit you should configure [Laravel Boost](https://laravel.com/docs/master/boost) and the official [PrimeVue MCP Server](https://primevue.org/mcp/) to provide your coding agent with useful tools that can greatly improve accuracy and efficiency.
 
 ### OpenCode
 
@@ -692,7 +692,7 @@ To provide more context about the starter kit's preferred patterns, and to invok
 
 ## Foundational Context
 
-This application is starter kit based on Laravel + PrimeVue components (styled mode), relevant packages & versions are listed below. You are an expert with them all. Ensure you abide by these specific packages & versions.
+This application is a starter kit based on Laravel + PrimeVue components (styled mode), relevant packages & versions are listed below. You are an expert with them all. Ensure you abide by these specific packages & versions.
 
 - inertiajs/inertia-laravel (INERTIA_LARAVEL) - v3
 - spatie/laravel-data (LARAVEL_DATA) - v4
