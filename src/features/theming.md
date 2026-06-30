@@ -41,11 +41,11 @@ import themePreset from '@/theme/bootstrap-preset' // your desired preset // [!c
 
 Creating your own theme preset is simple. You can:
 
--   Swap the [primary](https://primevue.org/theming/styled/#primary) values with a different set of [colors](https://primevue.org/theming/styled/#colors).
--   Adjust the `colorScheme` [surface](https://primevue.org/theming/styled/#surface) values (e.g., slate, gray, neutral).
--   Change the extended [preset theme](https://primevue.org/theming/styled/#presets).
+-   Swap the [primary](https://v4.primevue.org/theming/styled/#primary) values with a different set of [colors](https://v4.primevue.org/theming/styled/#colors).
+-   Adjust the `colorScheme` [surface](https://v4.primevue.org/theming/styled/#surface) values (e.g., slate, gray, neutral).
+-   Change the extended [preset theme](https://v4.primevue.org/theming/styled/#presets).
 
-For detailed guidance on customization, please refer to the [PrimeVue Styled Mode Docs](https://primevue.org/theming/styled/).
+For detailed guidance on customization, please refer to the [PrimeVue Styled Mode Docs](https://v4.primevue.org/theming/styled/).
 
 ## Demo - Theme Selector
 
