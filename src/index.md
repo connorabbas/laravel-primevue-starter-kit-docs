@@ -24,7 +24,7 @@ features:
           src: /images/primevue-logo.webp
       title: PrimeVue Components
       details: A comprehensive suite of customizable, feature-rich UI components for Vue.js
-      link: https://primevue.org/
+      link: https://v4.primevue.org/
     - icon:
           src: /images/inertia-new-logo.png
       title: Inertia.js
