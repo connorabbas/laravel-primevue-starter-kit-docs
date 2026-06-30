@@ -74,6 +74,9 @@ Use the following steps to disable SSR:
             refresh: true,
         }),
         // ...
+        ssr: { // [!code --]
+            noExternal: true, // bundle node server related files, so we don't need node_modules in production // [!code --]
+        }, // [!code --]
     ]
     ```
 
