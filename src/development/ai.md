@@ -4,7 +4,7 @@ This starter kit intentionally does not ship with AI configuration files, since 
 
 ## MCP
 
-When working with AI using this starter kit you should configure [Laravel Boost](https://laravel.com/docs/master/boost) and the official [PrimeVue MCP Server](https://primevue.org/mcp/) to provide your coding agent with useful tools that can greatly improve accuracy and efficiency.
+When working with AI using this starter kit you should configure [Laravel Boost](https://laravel.com/docs/master/boost) and the official [PrimeVue MCP Server](https://v4.primevue.org/mcp/) to provide your coding agent with useful tools that can greatly improve accuracy and efficiency.
 
 ### OpenCode
 
@@ -83,7 +83,7 @@ This project uses PrimeVue's **styled mode** with a custom preset located in `re
 - **Do not** add custom `border`, `border-radius`, or `box-shadow` styles to any component — styled mode themes already provide these, and adding extras breaks theme-swap consistency.
 - Customize component appearance via design tokens: use the `dt` prop for scoped instance overrides, or modify the preset file for global overrides.
 - When in doubt about available tokens for a component, call `get_component_tokens` from the MCP.
-- Reference: https://primevue.org/llms/pages/styled.md
+- Reference: https://v4.primevue.org/llms/pages/styled.md
 
 ## Tailwind CSS Integration
 
@@ -113,7 +113,7 @@ Use the `tailwindcss-primeui` plugin utility classes instead of raw Tailwind col
 - Do **not** use raw Tailwind color classes (`bg-gray-*`, `text-gray-*`, `bg-white`, etc.) for anything surface or text related.
 - Do **not** add `dark:` variants for these — `tailwindcss-primeui` handles dark mode automatically.
 - All variants and breakpoints are supported, e.g. `sm:bg-primary`, `hover:bg-emphasis`.
-- Reference: https://primevue.org/llms/pages/tailwind.md
+- Reference: https://v4.primevue.org/llms/pages/tailwind.md
 
 ## Pass Through (PT)
 
@@ -126,7 +126,7 @@ Use Pass Through to apply Tailwind utility classes to a component's internal DOM
 - Only use PT for **spacing and layout** (padding, margin, gap). Never use it for borders, shadows, or colors that conflict with the theme.
 - Call `get_component_pt` from the MCP to discover all available PT keys for a component.
 - Do not use `:deep()` as an alternative — PT is the correct and supported approach.
-- Reference: https://primevue.org/llms/pages/passthrough.md
+- Reference: https://v4.primevue.org/llms/pages/passthrough.md
 
 ## Navigation & Menus
 
@@ -321,7 +321,7 @@ When displaying tabular data, always use `<DataTable>` paired with the `usePagin
 
 - [Composable docs](https://connorabbas.github.io/laravel-primevue-starter-kit-docs/features/composables/usePaginatedDataTable.html)
 - [Demo source](https://raw.githubusercontent.com/connorabbas/laravel-primevue-starter-kit-demo/refs/heads/master/resources/js/pages/examples/data-table/contacts/Index.vue)
-- [PrimeVue DataTable](https://primevue.org/llms/components/datatable.md)
+- [PrimeVue DataTable](https://v4.primevue.org/llms/components/datatable.md)
 
 **Basic usage pattern:**
 
@@ -441,9 +441,9 @@ Key returned values:
 
 - [Composable docs](https://connorabbas.github.io/laravel-primevue-starter-kit-docs/features/composables/usePaginatedData.html)
 - [Demo source](https://raw.githubusercontent.com/connorabbas/laravel-primevue-starter-kit-demo/refs/heads/master/resources/js/pages/examples/paginator/contacts/Index.vue)
-- [PrimeVue Paginator](https://primevue.org/llms/components/paginator.md)
-- [PrimeVue Card](https://primevue.org/llms/components/card.md)
-- [PrimeVue Skeleton](https://primevue.org/llms/components/skeleton.md)
+- [PrimeVue Paginator](https://v4.primevue.org/llms/components/paginator.md)
+- [PrimeVue Card](https://v4.primevue.org/llms/components/card.md)
+- [PrimeVue Skeleton](https://v4.primevue.org/llms/components/skeleton.md)
 
 **Usage pattern:**
 

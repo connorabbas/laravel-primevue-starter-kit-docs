@@ -33,7 +33,7 @@ export default defineConfig({
         nav: [
             { text: 'Demo Application', link: 'https://laravel-primevue.sodakswe.dev' },
             { text: 'Laravel Docs', link: 'https://laravel.com/docs/master' },
-            { text: 'PrimeVue Docs', link: 'https://primevue.org/' },
+            { text: 'PrimeVue Docs (v4)', link: 'https://v4.primevue.org/' },
         ],
 
         sidebar: [

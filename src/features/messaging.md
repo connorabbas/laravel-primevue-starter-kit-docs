@@ -6,8 +6,8 @@ Providing effective messaging for user interactions is an essential part of any 
 
 Server-driven messages are flashed using [`Inertia::flash()`](https://inertiajs.com/docs/v3/data-props/flash-data) and automatically rendered client-side with the correlated PrimeVue component based on the flash key suffix:
 
-- `<severity>_message` renders an inline [`<Message />`](https://primevue.org/message/)
-- `<severity>_toast` triggers a [`<Toast />`](https://primevue.org/toast/) notification
+- `<severity>_message` renders an inline [`<Message />`](https://v4.primevue.org/message/)
+- `<severity>_toast` triggers a [`<Toast />`](https://v4.primevue.org/toast/) notification
 
 Supported severity prefixes: `success`, `info`, `warn`, `error`. Unknown prefixes will fall back to `secondary`.
 
@@ -48,7 +48,7 @@ Inertia::flash([
 ```
 
 ::: info
-For client-only actions (e.g., clipboard copy), you should still use [`useToast()`](https://primevue.org/toast/#toast-service) directly.
+For client-only actions (e.g., clipboard copy), you should still use [`useToast()`](https://v4.primevue.org/toast/#toast-service) directly.
 :::
 
 ## Automatic Toast Error Handling
