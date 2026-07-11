@@ -28,22 +28,16 @@ Use the following steps to disable SSR:
     ::: code-group
 
     ```ts [resources/js/app.ts]
-    import { createSSRApp, DefineComponent, h } from 'vue' // [!code --]
-    import { createApp, DefineComponent, h } from 'vue' // [!code ++]
+    import { createSSRApp, h } from 'vue' // [!code --]
+    import { createApp, h } from 'vue' // [!code ++]
 
     // ...
 
     createSSRApp({ // [!code --]
     createApp({  // [!code ++]
-        setup: () => {
-            // Inertia router events for Error toast handling, flash data, etc.
-            useInertiaRouterEvents()
-        },
-        render: () => h('div', [
-            // Root template with global toast component
-            h(App, props),
-            h(Toast, { position: 'bottom-right' })
-        ])
+        render: () => h(AppRoot, {}, {
+            default: () => h(App, props)
+        })
     })
     ```
 

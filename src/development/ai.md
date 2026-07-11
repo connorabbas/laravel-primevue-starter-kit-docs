@@ -727,7 +727,7 @@ This application is a starter kit based on Laravel + PrimeVue components (styled
   - `<severity>_toast` to trigger global toast notifications.
   - `<severity>_message` to render inline `FlashMessages` content.
 - Use severity prefixes: `success`, `info`, `warn`, `error`. Unknown prefixes fall back to `secondary` in the frontend.
-- Toast rendering is centralized in `resources/js/composables/useInertiaRouterEvents.ts` via `router.on('flash', ...)`; do not duplicate mutation-success toasts in page-level `onSuccess` callbacks.
+- Toast rendering is centralized in `resources/js/components/AppRoot.vue` via `router.on('flash', ...)`; do not duplicate mutation-success toasts in page-level `onSuccess` callbacks.
 - Inline message rendering is centralized in `resources/js/components/FlashMessages.vue`; use `*_message` flash keys when you want visible page-level messaging.
 
 ## Frontend Routing
