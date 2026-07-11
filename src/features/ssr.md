@@ -35,15 +35,9 @@ Use the following steps to disable SSR:
 
     createSSRApp({ // [!code --]
     createApp({  // [!code ++]
-        setup: () => {
-            // Inertia router events for Error toast handling, flash data, etc.
-            useInertiaRouterEvents()
-        },
-        render: () => h('div', [
-            // Root template with global toast component
-            h(App, props),
-            h(Toast, { position: 'bottom-right' })
-        ])
+        render: () => h(AppRoot, {}, {
+            default: () => h(App, props)
+        })
     })
     ```
 
