@@ -28,8 +28,8 @@ Use the following steps to disable SSR:
     ::: code-group
 
     ```ts [resources/js/app.ts]
-    import { createSSRApp, DefineComponent, h } from 'vue' // [!code --]
-    import { createApp, DefineComponent, h } from 'vue' // [!code ++]
+    import { createSSRApp, h } from 'vue' // [!code --]
+    import { createApp, h } from 'vue' // [!code ++]
 
     // ...
 
