@@ -1,7 +1,9 @@
 # Introduction
 
 ::: warning
-Before adopting this starter kit, be aware that it is designed for [PrimeVue v4](https://v4.primevue.org/), the final MIT-licensed open source release. PrimeTek has announced that PrimeVue v5 will transition to the [new PrimeUI licensing model](https://primeui.dev/pricing) and will no longer be released as open source. As a result, this starter kit will continue to support and maintain the open source v4 ecosystem but does not plan to migrate to PrimeVue v5.
+Before adopting this starter kit, be aware that it is designed for [PrimeVue v4](https://v4.primevue.org/), the final MIT-licensed open source release. PrimeTek has announced that PrimeVue v5 will transition to the [new PrimeUI licensing model](https://primeui.dev/pricing) and will no longer be released as open source. As a result, this starter kit does not plan to migrate to PrimeVue v5.
+
+Consider migrating the PrimeVue packages to use [OpenVue](https://openvue.dev/), or use the [Laravel Nuxt UI Starter Kit](https://github.com/connorabbas/laravel-nuxtui-starter-kit) as an alternative.
 :::
 
 ## About
@@ -26,23 +28,3 @@ To view the starter kit in action, you can visit the [demo site](https://laravel
 - Easily customizable theming
 - Pre-configured [server-side rendering](/features/ssr)
 - PHPStan with level 8 compliance
-
-## Alternatives
-
-<!-- ### Branch - Admin Role
-
-Want even more out of this starter kit? Check out the [Admin Role](https://github.com/connorabbas/laravel-primevue-starter-kit/tree/feature/admin-role) branch, which provides an Admin Role and permissions features.
-
-Read the [setup docs](/alt/admin-role-branch) to learn more and get started. -->
-
-### PrimeVue SPA + Laravel API Starter Kit
-
-Do you prefer/need a separate Vue SPA front-end rather than using Inertia.js? Consider using the [PrimeVue SPA + Laravel API Starter Kit](https://github.com/connorabbas/laravel-api-primevue-starter-kit) instead.
-
-Read the [setup docs](/alt/api-spa) to learn more and get started.
-
-### Laravel Nuxt UI Starter Kit
-
-Looking for a functionally equivalent Inertia starter kit built with [Nuxt UI](https://ui.nuxt.com/)? Check out the [Laravel Nuxt UI Starter Kit](https://github.com/connorabbas/laravel-nuxtui-starter-kit).
-
-Nuxt UI offers a comprehensive set of components, backed by funded development, an active community, and first-class Inertia support. With PrimeVue v5 adopting a [closed-source development model](https://primeui.dev/nextchapter), Nuxt UI is a compelling open source alternative for developers looking to migrate to a new Vue component library.
