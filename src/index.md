@@ -10,9 +10,6 @@ hero:
         - theme: brand
           text: Get Started
           link: /get-started/introduction
-        - theme: alt
-          text: Visit the Demo
-          link: https://laravel-primevue.sodakswe.dev
 
 features:
     - icon:

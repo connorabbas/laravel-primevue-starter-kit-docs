@@ -31,19 +31,11 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            { text: 'Demo Application', link: 'https://laravel-primevue.sodakswe.dev' },
             { text: 'Laravel Docs', link: 'https://laravel.com/docs/master' },
             { text: 'PrimeVue Docs (v4)', link: 'https://v4.primevue.org/' },
         ],
 
         sidebar: [
-            /* {
-                text: 'Examples',
-                items: [
-                    { text: 'Markdown Examples', link: '/markdown-examples' },
-                    { text: 'Runtime API Examples', link: '/api-examples' },
-                ],
-            }, */
             {
                 text: 'Get Started',
                 items: [
@@ -72,13 +64,6 @@ export default defineConfig({
                             { text: 'usePaginatedDataTable', link: '/features/composables/usePaginatedDataTable' },
                         ],
                     },
-                ],
-            },
-            {
-                text: 'Alternatives',
-                items: [
-                    //{ text: 'Branch - Admin Role', link: '/alt/admin-role-branch' },
-                    { text: 'API / SPA Starter Kit', link: '/alt/api-spa' },
                 ],
             },
         ],
